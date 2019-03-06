@@ -14,7 +14,7 @@ class SGSampleRune: NSObject {
     let clazz: UIViewController.Type
     var decription: String = ""
     
-    init(title: String, controller: UIViewController.Type) {
+    @objc public init(title: String, controller: UIViewController.Type) {
         self.title = title
         self.clazz = controller
         super.init()

@@ -12,8 +12,10 @@ class SGSampleController: UIViewController, UITableViewDataSource, UITableViewDe
     
 
     let table = UITableView(frame: CGRect.zero, style: UITableView.Style.plain)
-    let runes:[SGSampleRune] = [
-        SGHitTestController.rune()
+    let sects:[SGSampleRunes] = [
+        SGUIAboutRunes(),
+        SGRuntimeRunes(),
+        ReadyForWX.runes(),
     ]
     
     
@@ -37,8 +39,12 @@ class SGSampleController: UIViewController, UITableViewDataSource, UITableViewDe
         table.delegate = self
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sects.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return runes.count
+        return sects[section].runes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,17 +52,17 @@ class SGSampleController: UIViewController, UITableViewDataSource, UITableViewDe
         if cell == nil {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Controller")
         }
-        cell?.textLabel?.text = runes[indexPath.row].title
-        cell?.detailTextLabel?.text = runes[indexPath.row].decription
+        cell?.textLabel?.text = sects[indexPath.section].runes[indexPath.row].title
+        cell?.detailTextLabel?.text = sects[indexPath.section].runes[indexPath.row].decription
         return cell!
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Gate Of Babylon"
+        return sects[section].title
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let rune = runes[indexPath.row]
+        let rune = sects[indexPath.section].runes[indexPath.row]
         let vc = rune.clazz.init()
         navigationController?.pushViewController(vc, animated: true)
     }
