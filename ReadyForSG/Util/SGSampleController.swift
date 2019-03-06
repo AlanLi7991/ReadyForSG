@@ -13,7 +13,7 @@ class SGSampleController: UIViewController, UITableViewDataSource, UITableViewDe
 
     let table = UITableView(frame: CGRect.zero, style: UITableView.Style.plain)
     let runes:[SGSampleRune] = [
-        
+        SGHitTestController.rune()
     ]
     
     

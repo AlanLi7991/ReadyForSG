@@ -19,6 +19,8 @@
 		2E0805B0222FF88D00599BC4 /* SGSampleNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805AE222FF88D00599BC4 /* SGSampleNavigation.swift */; };
 		2E0805B3222FF8AD00599BC4 /* SGActionRune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805B1222FF8AD00599BC4 /* SGActionRune.swift */; };
 		2E0805B4222FF8AD00599BC4 /* SGSampleRune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805B2222FF8AD00599BC4 /* SGSampleRune.swift */; };
+		2E0805B9222FFE2D00599BC4 /* SGHitTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805B8222FFE2D00599BC4 /* SGHitTestController.swift */; };
+		2E0805BB222FFE4B00599BC4 /* SGHitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805BA222FFE4B00599BC4 /* SGHitTestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		2E0805AE222FF88D00599BC4 /* SGSampleNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGSampleNavigation.swift; sourceTree = "<group>"; };
 		2E0805B1222FF8AD00599BC4 /* SGActionRune.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGActionRune.swift; sourceTree = "<group>"; };
 		2E0805B2222FF8AD00599BC4 /* SGSampleRune.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGSampleRune.swift; sourceTree = "<group>"; };
+		2E0805B8222FFE2D00599BC4 /* SGHitTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGHitTestController.swift; sourceTree = "<group>"; };
+		2E0805BA222FFE4B00599BC4 /* SGHitTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGHitTestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		2E08057F222FF77600599BC4 /* ReadyForSG */ = {
 			isa = PBXGroup;
 			children = (
+				2E0805B6222FFDF800599BC4 /* 01UIAbout */,
 				2E0805B5222FF8D500599BC4 /* Util */,
 				2E080580222FF77600599BC4 /* AppDelegate.swift */,
 				2E080587222FF77700599BC4 /* Assets.xcassets */,
@@ -114,6 +119,23 @@
 				2E0805AE222FF88D00599BC4 /* SGSampleNavigation.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		2E0805B6222FFDF800599BC4 /* 01UIAbout */ = {
+			isa = PBXGroup;
+			children = (
+				2E0805B7222FFE0B00599BC4 /* HitTest */,
+			);
+			path = 01UIAbout;
+			sourceTree = "<group>";
+		};
+		2E0805B7222FFE0B00599BC4 /* HitTest */ = {
+			isa = PBXGroup;
+			children = (
+				2E0805B8222FFE2D00599BC4 /* SGHitTestController.swift */,
+				2E0805BA222FFE4B00599BC4 /* SGHitTestView.swift */,
+			);
+			path = HitTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,7 +242,9 @@
 				2E0805B3222FF8AD00599BC4 /* SGActionRune.swift in Sources */,
 				2E0805B0222FF88D00599BC4 /* SGSampleNavigation.swift in Sources */,
 				2E0805B4222FF8AD00599BC4 /* SGSampleRune.swift in Sources */,
+				2E0805BB222FFE4B00599BC4 /* SGHitTestView.swift in Sources */,
 				2E080581222FF77600599BC4 /* AppDelegate.swift in Sources */,
+				2E0805B9222FFE2D00599BC4 /* SGHitTestController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
