@@ -12,6 +12,7 @@ class SGSampleNavigation: UINavigationController {
 
     convenience init() {
         self.init(rootViewController: SGSampleController())
+        view.backgroundColor = UIColor.white
     }
     
 }

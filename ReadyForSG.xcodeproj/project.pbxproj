@@ -21,6 +21,8 @@
 		2E0805B4222FF8AD00599BC4 /* SGSampleRune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805B2222FF8AD00599BC4 /* SGSampleRune.swift */; };
 		2E0805B9222FFE2D00599BC4 /* SGHitTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805B8222FFE2D00599BC4 /* SGHitTestController.swift */; };
 		2E0805BB222FFE4B00599BC4 /* SGHitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805BA222FFE4B00599BC4 /* SGHitTestView.swift */; };
+		2E0805BD223004CA00599BC4 /* SGHitEmptyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805BC223004CA00599BC4 /* SGHitEmptyContainer.swift */; };
+		2E0805BF223004E000599BC4 /* SGHitExpandButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805BE223004E000599BC4 /* SGHitExpandButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		2E0805B2222FF8AD00599BC4 /* SGSampleRune.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGSampleRune.swift; sourceTree = "<group>"; };
 		2E0805B8222FFE2D00599BC4 /* SGHitTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGHitTestController.swift; sourceTree = "<group>"; };
 		2E0805BA222FFE4B00599BC4 /* SGHitTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGHitTestView.swift; sourceTree = "<group>"; };
+		2E0805BC223004CA00599BC4 /* SGHitEmptyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGHitEmptyContainer.swift; sourceTree = "<group>"; };
+		2E0805BE223004E000599BC4 /* SGHitExpandButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGHitExpandButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,8 @@
 			children = (
 				2E0805B8222FFE2D00599BC4 /* SGHitTestController.swift */,
 				2E0805BA222FFE4B00599BC4 /* SGHitTestView.swift */,
+				2E0805BC223004CA00599BC4 /* SGHitEmptyContainer.swift */,
+				2E0805BE223004E000599BC4 /* SGHitExpandButton.swift */,
 			);
 			path = HitTest;
 			sourceTree = "<group>";
@@ -243,6 +249,8 @@
 				2E0805B0222FF88D00599BC4 /* SGSampleNavigation.swift in Sources */,
 				2E0805B4222FF8AD00599BC4 /* SGSampleRune.swift in Sources */,
 				2E0805BB222FFE4B00599BC4 /* SGHitTestView.swift in Sources */,
+				2E0805BF223004E000599BC4 /* SGHitExpandButton.swift in Sources */,
+				2E0805BD223004CA00599BC4 /* SGHitEmptyContainer.swift in Sources */,
 				2E080581222FF77600599BC4 /* AppDelegate.swift in Sources */,
 				2E0805B9222FFE2D00599BC4 /* SGHitTestController.swift in Sources */,
 			);

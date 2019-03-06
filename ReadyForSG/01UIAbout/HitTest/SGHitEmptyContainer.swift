@@ -1,5 +1,5 @@
 //
-//  SGHitTestView.swift
+//  SGHitEmptyContainer.swift
 //  ReadyForSG
 //
 //  Created by Zhuojia on 2019/3/6.
@@ -8,20 +8,19 @@
 
 import UIKit
 
-class SGHitTestView: UIView {
-    
+class SGHitEmptyContainer: UIView {
+
     convenience init() {
         self.init(frame: CGRect.zero)
         self.backgroundColor = UIColor.blue.withAlphaComponent(0.3)
     }
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        print("hitTest point (\(point.x),\(point.y))")
-        return super.hitTest(point, with: event)
+        let view = super.hitTest(point, with: event)
+        if view == self {
+            return nil
+        }
+        return view
     }
     
-    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        print("point inside point (\(point.x),\(point.y))")
-        return super.point(inside: point, with: event)
-    }
 }
