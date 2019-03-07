@@ -148,8 +148,8 @@
 		CB60526F9DD01D55731EDCD7 /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
-				CB605738EFCE9719FC3342FA /* SGObject.m */,
 				CB605FA4F6B7A050DD42C83D /* SGObject.h */,
+				CB605738EFCE9719FC3342FA /* SGObject.m */,
 			);
 			path = NSObject;
 			sourceTree = "<group>";
