@@ -6,10 +6,47 @@
 #import "SGObject.h"
 
 
-@implementation SGObject {
+@implementation SGObject
 
++ (BOOL)resolveInstanceMethod:(SEL)sel {
+    NSLog(@"resolveInstanceMethod:");
+    if (sel == @selector(test)) {
+        return NO;
+    }
+    return [super resolveInstanceMethod:sel];
 }
 
+
+- (IMP)methodForSelector:(SEL)aSelector {
+    NSLog(@"methodForSelector:");
+    return [super methodForSelector:aSelector];
+}
+
+- (void)doesNotRecognizeSelector:(SEL)aSelector {
+    NSLog(@"doesNotRecognizeSelector:");
+    return;
+}
+
+- (id)forwardingTargetForSelector:(SEL)aSelector {
+    NSLog(@"forwardingTargetForSelector:");
+    if (aSelector == @selector(test)) {
+        return nil;
+    }
+    return [super forwardingTargetForSelector:aSelector];
+}
+
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    NSLog(@"forwardInvocation:");
+    [super forwardInvocation:anInvocation];
+}
+
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    NSLog(@"methodSignatureForSelector:");
+    if (aSelector == @selector(test)) {
+        return [NSMethodSignature signatureWithObjCTypes:"v@:"];
+    }
+    return [super methodSignatureForSelector:aSelector];
+}
 
 
 //----------------------------------------------------------------------------//

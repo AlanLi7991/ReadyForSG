@@ -24,6 +24,9 @@
 		2E0805CA22301F0D00599BC4 /* ReadyForWX.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805C922301F0D00599BC4 /* ReadyForWX.m */; };
 		2E0805CD2230202100599BC4 /* SGRuntimeRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805CC2230202100599BC4 /* SGRuntimeRunes.swift */; };
 		CB6054CE13A7667686D9E8BD /* SGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CB605738EFCE9719FC3342FA /* SGObject.m */; };
+		CB605FA2A6E12B8A2E9E42E4 /* SGLogRune.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6055337F3F4EECDB1C6A66 /* SGLogRune.swift */; };
+		CB605FFBE510DF6F0242ECDD /* SGMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB605E11604C9552B5616B36 /* SGMessageController.m */; };
+		DCDC861E22321D3D006ED299 /* SGMessageSController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDC861D22321D3D006ED299 /* SGMessageSController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,8 +50,12 @@
 		2E0805C822301F0D00599BC4 /* ReadyForWX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReadyForWX.h; sourceTree = "<group>"; };
 		2E0805C922301F0D00599BC4 /* ReadyForWX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReadyForWX.m; sourceTree = "<group>"; };
 		2E0805CC2230202100599BC4 /* SGRuntimeRunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRuntimeRunes.swift; sourceTree = "<group>"; };
+		CB6052697F107E713D224B28 /* SGMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMessageController.h; sourceTree = "<group>"; };
+		CB6055337F3F4EECDB1C6A66 /* SGLogRune.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGLogRune.swift; sourceTree = "<group>"; };
 		CB605738EFCE9719FC3342FA /* SGObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGObject.m; sourceTree = "<group>"; };
+		CB605E11604C9552B5616B36 /* SGMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGMessageController.m; sourceTree = "<group>"; };
 		CB605FA4F6B7A050DD42C83D /* SGObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGObject.h; sourceTree = "<group>"; };
+		DCDC861D22321D3D006ED299 /* SGMessageSController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGMessageSController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +105,7 @@
 		2E0805B5222FF8D500599BC4 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				CB6055337F3F4EECDB1C6A66 /* SGLogRune.swift */,
 				2E0805B1222FF8AD00599BC4 /* SGActionRune.swift */,
 				2E0805B2222FF8AD00599BC4 /* SGSampleRune.swift */,
 				2E0805C322301C6900599BC4 /* SGSampleRunes.swift */,
@@ -139,8 +147,9 @@
 		2E0805CB22301FEB00599BC4 /* 02Runtime */ = {
 			isa = PBXGroup;
 			children = (
-				2E0805CC2230202100599BC4 /* SGRuntimeRunes.swift */,
 				CB60526F9DD01D55731EDCD7 /* NSObject */,
+				DCDC861C22321D0A006ED299 /* MessageForward */,
+				2E0805CC2230202100599BC4 /* SGRuntimeRunes.swift */,
 			);
 			path = 02Runtime;
 			sourceTree = "<group>";
@@ -152,6 +161,16 @@
 				CB605738EFCE9719FC3342FA /* SGObject.m */,
 			);
 			path = NSObject;
+			sourceTree = "<group>";
+		};
+		DCDC861C22321D0A006ED299 /* MessageForward */ = {
+			isa = PBXGroup;
+			children = (
+				DCDC861D22321D3D006ED299 /* SGMessageSController.swift */,
+				CB605E11604C9552B5616B36 /* SGMessageController.m */,
+				CB6052697F107E713D224B28 /* SGMessageController.h */,
+			);
+			path = MessageForward;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +246,7 @@
 			files = (
 				2E0805AF222FF88D00599BC4 /* SGSampleController.swift in Sources */,
 				2E0805B3222FF8AD00599BC4 /* SGActionRune.swift in Sources */,
+				DCDC861E22321D3D006ED299 /* SGMessageSController.swift in Sources */,
 				2E0805C422301C6900599BC4 /* SGSampleRunes.swift in Sources */,
 				2E0805B0222FF88D00599BC4 /* SGSampleNavigation.swift in Sources */,
 				2E0805CD2230202100599BC4 /* SGRuntimeRunes.swift in Sources */,
@@ -240,6 +260,8 @@
 				2E0805C622301D9800599BC4 /* SGUIAboutRunes.swift in Sources */,
 				2E0805CA22301F0D00599BC4 /* ReadyForWX.m in Sources */,
 				CB6054CE13A7667686D9E8BD /* SGObject.m in Sources */,
+				CB605FA2A6E12B8A2E9E42E4 /* SGLogRune.swift in Sources */,
+				CB605FFBE510DF6F0242ECDD /* SGMessageController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
