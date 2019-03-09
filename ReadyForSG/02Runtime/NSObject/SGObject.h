@@ -7,4 +7,7 @@
 
 
 @interface SGObject : NSObject
+
+- (void)test;
+
 @end

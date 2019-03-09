@@ -87,8 +87,9 @@ class SGHitTestController: UIViewController {
             expandBtn.centerXAnchor.constraint(equalTo: guide.centerXAnchor),
             expandBtn.widthAnchor.constraint(equalToConstant: 100),
             expandBtn.heightAnchor.constraint(equalToConstant: 20),
-            
             ])
+        
+        SGLogRune.instance.attach(view: self.view)
     }
     
     static func rune() -> SGSampleRune {

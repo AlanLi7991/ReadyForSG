@@ -14,7 +14,7 @@ class SGActionRune: NSObject {
     typealias TouchButton = (UIButton) -> Void
 
     let button = UIButton(type: UIButton.ButtonType.system)
-    let alert = UIAlertController(title: "Action", message: nil, preferredStyle: .actionSheet)
+    @objc public let alert = UIAlertController(title: "Action", message: nil, preferredStyle: .actionSheet)
     private var touchUpInsideButton: TouchButton? = nil
     
     override init() {
@@ -40,7 +40,7 @@ class SGActionRune: NSObject {
             ])
     }
     
-    func attach(viewController controller: UIViewController) {
+    @objc func attach(viewController controller: UIViewController) {
         attach(view: controller.view)
         touchUpInsideButton = { [weak controller, unowned self] button in
             controller?.present(self.alert, animated: true, completion: nil)

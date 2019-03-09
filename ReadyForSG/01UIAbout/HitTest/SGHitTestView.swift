@@ -16,12 +16,12 @@ class SGHitTestView: UIView {
     }
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        print("hitTest point (\(point.x),\(point.y))")
+        print("hitTest point ( \(String(format: "%0.2f", point.x)) , \(String(format: "%0.2f", point.y)) )")
         return super.hitTest(point, with: event)
     }
     
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        print("point inside point (\(point.x),\(point.y))")
+        print("point inside point ( \(String(format: "%0.2f", point.x)),\(String(format: "%0.2f", point.y)) )")
         return super.point(inside: point, with: event)
     }
 }
