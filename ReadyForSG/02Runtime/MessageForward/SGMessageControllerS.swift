@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SGMessageForwardController: UIViewController {
+class SGMessageControllerS: UIViewController {
 
     let action = SGActionRune()
     let obj = SGObject()

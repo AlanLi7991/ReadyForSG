@@ -7,7 +7,7 @@ import Foundation
 
 class SGLogRune: NSObject, UITextViewDelegate {
 
-    static let instance = SGLogRune()
+    @objc static public let instance = SGLogRune()
     
     let toHook = Pipe()
     let fromHook = Pipe()
@@ -55,7 +55,7 @@ class SGLogRune: NSObject, UITextViewDelegate {
         text?.insertText(str)
     }
 
-    func attach(view: UIView) {
+    @objc func attach(view: UIView) {
 
         let textView = UITextView()
         view.addSubview(textView)

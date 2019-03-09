@@ -23,10 +23,11 @@
 		2E0805C622301D9800599BC4 /* SGUIAboutRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805C522301D9800599BC4 /* SGUIAboutRunes.swift */; };
 		2E0805CA22301F0D00599BC4 /* ReadyForWX.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805C922301F0D00599BC4 /* ReadyForWX.m */; };
 		2E0805CD2230202100599BC4 /* SGRuntimeRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805CC2230202100599BC4 /* SGRuntimeRunes.swift */; };
+		2E0805CF22336AF900599BC4 /* SGObjectS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805CE22336AF900599BC4 /* SGObjectS.swift */; };
 		CB6054CE13A7667686D9E8BD /* SGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CB605738EFCE9719FC3342FA /* SGObject.m */; };
 		CB605FA2A6E12B8A2E9E42E4 /* SGLogRune.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6055337F3F4EECDB1C6A66 /* SGLogRune.swift */; };
 		CB605FFBE510DF6F0242ECDD /* SGMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB605E11604C9552B5616B36 /* SGMessageController.m */; };
-		DCDC861E22321D3D006ED299 /* SGMessageSController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDC861D22321D3D006ED299 /* SGMessageSController.swift */; };
+		DCDC861E22321D3D006ED299 /* SGMessageControllerS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDC861D22321D3D006ED299 /* SGMessageControllerS.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,12 +51,13 @@
 		2E0805C822301F0D00599BC4 /* ReadyForWX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReadyForWX.h; sourceTree = "<group>"; };
 		2E0805C922301F0D00599BC4 /* ReadyForWX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReadyForWX.m; sourceTree = "<group>"; };
 		2E0805CC2230202100599BC4 /* SGRuntimeRunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRuntimeRunes.swift; sourceTree = "<group>"; };
+		2E0805CE22336AF900599BC4 /* SGObjectS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGObjectS.swift; sourceTree = "<group>"; };
 		CB6052697F107E713D224B28 /* SGMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMessageController.h; sourceTree = "<group>"; };
 		CB6055337F3F4EECDB1C6A66 /* SGLogRune.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGLogRune.swift; sourceTree = "<group>"; };
 		CB605738EFCE9719FC3342FA /* SGObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGObject.m; sourceTree = "<group>"; };
 		CB605E11604C9552B5616B36 /* SGMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGMessageController.m; sourceTree = "<group>"; };
 		CB605FA4F6B7A050DD42C83D /* SGObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGObject.h; sourceTree = "<group>"; };
-		DCDC861D22321D3D006ED299 /* SGMessageSController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGMessageSController.swift; sourceTree = "<group>"; };
+		DCDC861D22321D3D006ED299 /* SGMessageControllerS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGMessageControllerS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			children = (
 				CB605FA4F6B7A050DD42C83D /* SGObject.h */,
 				CB605738EFCE9719FC3342FA /* SGObject.m */,
+				2E0805CE22336AF900599BC4 /* SGObjectS.swift */,
 			);
 			path = NSObject;
 			sourceTree = "<group>";
@@ -166,9 +169,9 @@
 		DCDC861C22321D0A006ED299 /* MessageForward */ = {
 			isa = PBXGroup;
 			children = (
-				DCDC861D22321D3D006ED299 /* SGMessageSController.swift */,
-				CB605E11604C9552B5616B36 /* SGMessageController.m */,
 				CB6052697F107E713D224B28 /* SGMessageController.h */,
+				CB605E11604C9552B5616B36 /* SGMessageController.m */,
+				DCDC861D22321D3D006ED299 /* SGMessageControllerS.swift */,
 			);
 			path = MessageForward;
 			sourceTree = "<group>";
@@ -246,11 +249,12 @@
 			files = (
 				2E0805AF222FF88D00599BC4 /* SGSampleController.swift in Sources */,
 				2E0805B3222FF8AD00599BC4 /* SGActionRune.swift in Sources */,
-				DCDC861E22321D3D006ED299 /* SGMessageSController.swift in Sources */,
+				DCDC861E22321D3D006ED299 /* SGMessageControllerS.swift in Sources */,
 				2E0805C422301C6900599BC4 /* SGSampleRunes.swift in Sources */,
 				2E0805B0222FF88D00599BC4 /* SGSampleNavigation.swift in Sources */,
 				2E0805CD2230202100599BC4 /* SGRuntimeRunes.swift in Sources */,
 				2E0805B4222FF8AD00599BC4 /* SGSampleRune.swift in Sources */,
+				2E0805CF22336AF900599BC4 /* SGObjectS.swift in Sources */,
 				2E0805BB222FFE4B00599BC4 /* SGHitTestView.swift in Sources */,
 				2E0805BF223004E000599BC4 /* SGHitExpandButton.swift in Sources */,
 				2E0805C2223010E300599BC4 /* SGSampleView.swift in Sources */,

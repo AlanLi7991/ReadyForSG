@@ -12,7 +12,7 @@ class SGSampleRune: NSObject {
     
     let title: String
     let clazz: UIViewController.Type
-    var decription: String = ""
+    @objc public var decription: String = ""
     
     @objc public init(title: String, controller: UIViewController.Type) {
         self.title = title
@@ -20,7 +20,7 @@ class SGSampleRune: NSObject {
         super.init()
     }
     
-    convenience init(controller: UIViewController.Type) {
+    @objc public convenience init(controller: UIViewController.Type) {
         let title = NSStringFromClass(controller).split(separator: ".").last!
         self.init(title: String(title), controller: controller)
     }

@@ -9,30 +9,25 @@
 @implementation SGObject
 
 + (BOOL)resolveInstanceMethod:(SEL)sel {
-    NSLog(@"resolveInstanceMethod:");
-    if (sel == @selector(test)) {
-        return NO;
-    }
-    return [super resolveInstanceMethod:sel];
-}
-
-
-- (IMP)methodForSelector:(SEL)aSelector {
-    NSLog(@"methodForSelector:");
-    return [super methodForSelector:aSelector];
-}
-
-- (void)doesNotRecognizeSelector:(SEL)aSelector {
-    NSLog(@"doesNotRecognizeSelector:");
-    return;
+    BOOL result = [super resolveInstanceMethod:sel];
+    NSString *name = NSStringFromSelector(sel);
+    NSLog(@"SGObject resolveInstanceMethod: SEL %@ return %d", name, result);
+    return result;
 }
 
 - (id)forwardingTargetForSelector:(SEL)aSelector {
-    NSLog(@"forwardingTargetForSelector:");
+    id result = [super forwardingTargetForSelector:aSelector];
+    NSLog(@"forwardingTargetForSelector: ");
+    return result;
+}
+
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    NSMethodSignature *result = [super methodSignatureForSelector:aSelector];
+    NSLog(@"methodSignatureForSelector:");
     if (aSelector == @selector(test)) {
-        return nil;
+        return [NSMethodSignature signatureWithObjCTypes:"v@:"];
     }
-    return [super forwardingTargetForSelector:aSelector];
+    return result;
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
@@ -40,13 +35,20 @@
     [super forwardInvocation:anInvocation];
 }
 
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSLog(@"methodSignatureForSelector:");
-    if (aSelector == @selector(test)) {
-        return [NSMethodSignature signatureWithObjCTypes:"v@:"];
-    }
-    return [super methodSignatureForSelector:aSelector];
+- (void)doesNotRecognizeSelector:(SEL)aSelector {
+    NSLog(@"doesNotRecognizeSelector:");
+    return;
 }
+
+- (IMP)methodForSelector:(SEL)aSelector {
+    IMP implementation =  [super methodForSelector:aSelector];
+    NSLog(@"methodForSelector: aSelector : ");
+    return implementation;
+}
+
+
+
+
 
 
 //----------------------------------------------------------------------------//
