@@ -11,10 +11,7 @@
 void RunloopObserverCallback(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info)
 {
     PerformanceWatcher *monitor = (__bridge PerformanceWatcher *)info;
-    if (monitor->printCallStacks) {
-        NSLog(@"stacks:");
-        NSLog(@"%@", [NSThread callStackSymbols]);
-    }
+    monitor->callStacks = [NSThread callStackSymbols];
 
     monitor->lastTimeoutActivity = activity;
     dispatch_semaphore_signal(monitor->semaphore);
@@ -71,8 +68,9 @@ void RunloopObserverCallback(CFRunLoopObserverRef observer, CFRunLoopActivity ac
                     if (++self->timeoutCount < 4) {
                         continue;
                     }
-                    self->printCallStacks = NO;
                     NSLog(@"Main thread timeout count reaches three");
+                    NSLog(@"%@", self->callStacks);
+                    NSLog(@"这里捕获到的堆栈，是卡顿运行前的堆栈，本方法无法捕获到卡顿运行时的堆栈");
                 }
             }
             

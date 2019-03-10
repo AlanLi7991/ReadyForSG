@@ -99,6 +99,7 @@
  *    两者的区别在于后者除了创建一个timer之外还会自动以kCFRunLoopDefaultMode的
  *    mode添加到当前线程的runloop中
  * 3. 使用scheduleTimerWithXXX的接口创建的timer，在屏幕滑动时，timer是不会正常工作的
+ * 4. 如果在一个子线程中add一个timer，但是子线程本身的runloop没有启动，timer是不会工作的
  */
 
 
@@ -146,8 +147,43 @@
  *       释放旧的池并创建新池。
  *    b. Exit：调用 _objc_autoreleasePoolPop() 来释放自动释放池。这个observer的order
  *       是2147483647，优先级最低，保证其释放池子发生在其他所有回调之后。
+ *
+ * Mark: When to use @autoReleasePool
+ * 1. Use Local Autorelease Pool Blocks to Reduce Peak Memory Footprint
+ * 2. If you are writing a Foundation-only program or if you detach a thread,
+ *    you need to create your own autorelease pool block.
+ * 第2点的一个例子：OC与C++混编，如果在C++创建的子线程中创建了OC对象，需要自己添加@autoReleasePool，
+ * 如果是在主线程创建的就不需要
  */
 
 //----------------------------------------------------------------------------//
 #pragma mark - 考点 监控主线程卡顿
 //----------------------------------------------------------------------------//
+/**
+ * Runloop真正执行事件是在kCFRunLoopBeforeSources和kCFRunLoopAfterWaiting之后，
+ * 通过计算kCFRunLoopBeforeSources到kCFRunLoopBeforeWaiting的时间，或者
+ * kCFRunLoopAfterWaiting到kCFRunLoopBeforeTimers之前的运行时间，定一个标准，
+ * 如执行超过30ms认为是卡顿。依此原理来检测主线程卡顿
+ * 缺陷：无法捕获卡顿的线程堆栈
+ */
+
+//----------------------------------------------------------------------------//
+#pragma mark - 考点 如何启动一个线程的Runloop
+//----------------------------------------------------------------------------//
+/**
+ * 1. 为当前线程创建一个Runloop（调用GetCurrentRunloop会自动创建）
+ * 2. 向Runloop中添加Source或Timer等维持Runloop的事件循环
+ * 3. 调用run方法启动该Runloop
+ */
+
+
+//----------------------------------------------------------------------------//
+#pragma mark - 考点 PerformSelector
+//----------------------------------------------------------------------------//
+/**
+ * 1. 当调用NSObject的performSelecter:afterDelay:方法后，实际上其内部会创建
+ *    一个Timer并添加到当前线程的Runloop中。如果当前线程的Runloop没有启动，则这
+ *    个方法会失效。
+ * 2. 同理，当调用 performSelector:onThread:时，实际上其会创建一个Timer加到对
+ *    应的线程去，同样的，如果对应线程没有 RunLoop 该方法也会失效。
+ */

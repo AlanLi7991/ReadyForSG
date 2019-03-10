@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
     dispatch_semaphore_t semaphore;
     CFRunLoopActivity lastTimeoutActivity;
     int timeoutCount;
-    bool printCallStacks;
+    NSArray *callStacks;
 }
 
 + (instancetype)sharedInstance;

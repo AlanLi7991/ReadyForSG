@@ -52,7 +52,6 @@
 }
 
 - (void)doBusyJob {
-    [PerformanceWatcher sharedInstance]->printCallStacks = YES;
     for (int i = 0; i < 10000000; ++i) {
         @autoreleasepool {
             int a = 0;
