@@ -14,3 +14,4 @@
 #import "ReadyForWX.h"
 #import "SGObject.h"
 #import "SGMessageController.h"
+#import "SGMainThreadStuttersMonitorController.h"

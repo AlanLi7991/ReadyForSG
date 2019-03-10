@@ -49,13 +49,12 @@
  *    Source、Observer或者Timer才可以生效
  *
  * 常用Mode：
- * 1. kCFRunLoopDefaultMode：创建一个Runloop时的默认Mode，除了屏幕滑动和按键点击
- *    外，一般情况下处于该Mode
+ * 1. kCFRunLoopDefaultMode：创建一个Runloop时的默认Mode，除了屏幕滑动，一般情况下都处于该Mode
  * 2. UITrackingRunLoopMode：屏幕滑动时处于该Mode，如滑动tableview
  * 3. kCFRunLoopCommonMode：该Mode实际上只是一种标记，当Mode切换时，该Mode的Source、
  *    Observer和Timer会自动同步到当前运行的Mode中。这也是NSTimer在添加到runloop中的时
  *    候，要用NSRunLoopCommonModes作为参数的原因
- * 4. GSEventReceiveRunLoopMode：用于接收触摸、点击等事件以唤醒runloop的
+ * 4. GSEventReceiveRunLoopMode：接受系统事件的内部Mode，通常用不到
  */
 
 
@@ -135,3 +134,20 @@
  * 12. 通知observer即将退出runloop（kCFRunLoopExit）
  */
 
+//----------------------------------------------------------------------------//
+#pragma mark - 考点 AutoreleasePool与Runloop
+//----------------------------------------------------------------------------//
+/**
+ * 1. App启动后，苹果在主线程注册了两个Observer，回调都是_wrapRunLoopWithAutoreleasePoolHandler()
+ * 2. 第一个observer监听的事件是enter，其回调内会调用_objc_autoreleasePoolPush()创建
+ *    自动释放池，order是-2147483647，优先级最高，保证创建释放池发生在其他所有回调之前。
+ * 3. 第二个observer监听了两个事件：
+ *    a. BeforeWaiting：调用_objc_autoreleasePoolPop() 和 _objc_autoreleasePoolPush()，
+ *       释放旧的池并创建新池。
+ *    b. Exit：调用 _objc_autoreleasePoolPop() 来释放自动释放池。这个observer的order
+ *       是2147483647，优先级最低，保证其释放池子发生在其他所有回调之后。
+ */
+
+//----------------------------------------------------------------------------//
+#pragma mark - 考点 监控主线程卡顿
+//----------------------------------------------------------------------------//

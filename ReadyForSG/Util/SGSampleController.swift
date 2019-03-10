@@ -15,6 +15,7 @@ class SGSampleController: UIViewController, UITableViewDataSource, UITableViewDe
     let sects:[SGSampleRunes] = [
         SGUIAboutRunes(),
         SGRuntimeRunes(),
+        SGRunloopRunes(),
         ReadyForWX.runes(),
     ]
     

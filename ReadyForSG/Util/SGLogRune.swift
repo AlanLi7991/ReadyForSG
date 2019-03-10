@@ -23,7 +23,7 @@ class SGLogRune: NSObject, UITextViewDelegate {
            text?.isHidden = !active
         }
     }
-    public func clearText() {
+    @objc public func clearText() {
         text?.text = ""
     }
 
