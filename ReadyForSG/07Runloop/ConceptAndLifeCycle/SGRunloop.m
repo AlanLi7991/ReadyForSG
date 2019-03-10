@@ -164,7 +164,8 @@
  * 通过计算kCFRunLoopBeforeSources到kCFRunLoopBeforeWaiting的时间，或者
  * kCFRunLoopAfterWaiting到kCFRunLoopBeforeTimers之前的运行时间，定一个标准，
  * 如执行超过30ms认为是卡顿。依此原理来检测主线程卡顿
- * 缺陷：无法捕获卡顿的线程堆栈
+ * 补充：这里只是监测卡顿，无法捕获卡顿时的线程堆栈。可以配合信号量获取主线程的堆栈。
+ * http://mrpeak.cn/blog/ui-detect/
  */
 
 //----------------------------------------------------------------------------//

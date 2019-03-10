@@ -7,6 +7,8 @@
 //
 
 #import "PerformanceWatcher.h"
+#include <signal.h>
+#include <pthread.h>
 
 void RunloopObserverCallback(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info)
 {
@@ -17,9 +19,25 @@ void RunloopObserverCallback(CFRunLoopObserverRef observer, CFRunLoopActivity ac
     dispatch_semaphore_signal(monitor->semaphore);
 }
 
+void USR1SignalHandler(int signal)
+{
+    if (signal != SIGUSR1) {
+        return;
+    }
+    NSArray* callStackSymbols = [NSThread callStackSymbols];
+    NSLog(@"call stack symbols:");
+    NSLog(@"%@", callStackSymbols);
+}
+
+void InstallSignalHandler()
+{
+    signal(SIGUSR1, USR1SignalHandler);
+}
+
 @interface PerformanceWatcher ()
 {
     CFRunLoopObserverRef observer;
+    pthread_t            mainThreadID;
 }
 
 @end
@@ -37,10 +55,19 @@ void RunloopObserverCallback(CFRunLoopObserverRef observer, CFRunLoopActivity ac
 }
 
 - (void)startMonitor {
+    if ([NSThread isMainThread] == NO) {
+        NSLog(@"Error: startWatch must be called from main thread!");
+        return;
+    }
+    
     if (observer) {
         return;
     }
     
+    //注册handler
+    InstallSignalHandler();
+    mainThreadID = pthread_self();
+
     // 创建信号
     semaphore = dispatch_semaphore_create(0);
     timeoutCount = 0;
@@ -69,8 +96,9 @@ void RunloopObserverCallback(CFRunLoopObserverRef observer, CFRunLoopActivity ac
                         continue;
                     }
                     NSLog(@"Main thread timeout count reaches three");
-                    NSLog(@"%@", self->callStacks);
-                    NSLog(@"这里捕获到的堆栈，是卡顿运行前的堆栈，本方法无法捕获到卡顿运行时的堆栈");
+//                    NSLog(@"%@", self->callStacks);
+//                    NSLog(@"这里捕获到的堆栈，是卡顿运行前的堆栈，如果要捕获卡顿时的堆栈，可以使用信号的方式");
+                    pthread_kill(self->mainThreadID, SIGUSR1);
                 }
             }
             

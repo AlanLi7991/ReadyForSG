@@ -24,13 +24,13 @@
 		2E0805CA22301F0D00599BC4 /* ReadyForWX.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805C922301F0D00599BC4 /* ReadyForWX.m */; };
 		2E0805CD2230202100599BC4 /* SGRuntimeRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805CC2230202100599BC4 /* SGRuntimeRunes.swift */; };
 		2E0805CF22336AF900599BC4 /* SGObjectS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805CE22336AF900599BC4 /* SGObjectS.swift */; };
+		2E0805D32234DC4A00599BC4 /* SGSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805D22234DC4A00599BC4 /* SGSwizzle.m */; };
+		2E0805D62234DC6600599BC4 /* SGSwizzleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805D52234DC6600599BC4 /* SGSwizzleController.m */; };
+		2E0805DA2234E27D00599BC4 /* SGDynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805D92234E27D00599BC4 /* SGDynamic.m */; };
 		623311CC2234A0F50037E1BA /* PerformanceWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 623311CB2234A0F50037E1BA /* PerformanceWatcher.m */; };
 		623311CF2234B5370037E1BA /* SGMainThreadStuttersMonitorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 623311CE2234B5370037E1BA /* SGMainThreadStuttersMonitorController.m */; };
 		623311D12234B7090037E1BA /* SGRunloopRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623311D02234B7090037E1BA /* SGRunloopRunes.swift */; };
 		623BBF1122315F1000D4AEDA /* SGRunloop.m in Sources */ = {isa = PBXBuildFile; fileRef = 623BBF1022315F1000D4AEDA /* SGRunloop.m */; };
-		2E0805D32234DC4A00599BC4 /* SGSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805D22234DC4A00599BC4 /* SGSwizzle.m */; };
-		2E0805D62234DC6600599BC4 /* SGSwizzleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805D52234DC6600599BC4 /* SGSwizzleController.m */; };
-		2E0805DA2234E27D00599BC4 /* SGDynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805D92234E27D00599BC4 /* SGDynamic.m */; };
 		CB6054CE13A7667686D9E8BD /* SGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CB605738EFCE9719FC3342FA /* SGObject.m */; };
 		CB605FA2A6E12B8A2E9E42E4 /* SGLogRune.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6055337F3F4EECDB1C6A66 /* SGLogRune.swift */; };
 		CB605FFBE510DF6F0242ECDD /* SGMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB605E11604C9552B5616B36 /* SGMessageController.m */; };
@@ -59,6 +59,12 @@
 		2E0805C922301F0D00599BC4 /* ReadyForWX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReadyForWX.m; sourceTree = "<group>"; };
 		2E0805CC2230202100599BC4 /* SGRuntimeRunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRuntimeRunes.swift; sourceTree = "<group>"; };
 		2E0805CE22336AF900599BC4 /* SGObjectS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGObjectS.swift; sourceTree = "<group>"; };
+		2E0805D12234DC4A00599BC4 /* SGSwizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGSwizzle.h; sourceTree = "<group>"; };
+		2E0805D22234DC4A00599BC4 /* SGSwizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGSwizzle.m; sourceTree = "<group>"; };
+		2E0805D42234DC6600599BC4 /* SGSwizzleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGSwizzleController.h; sourceTree = "<group>"; };
+		2E0805D52234DC6600599BC4 /* SGSwizzleController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGSwizzleController.m; sourceTree = "<group>"; };
+		2E0805D82234E27D00599BC4 /* SGDynamic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGDynamic.h; sourceTree = "<group>"; };
+		2E0805D92234E27D00599BC4 /* SGDynamic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGDynamic.m; sourceTree = "<group>"; };
 		623311CA2234A0F50037E1BA /* PerformanceWatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerformanceWatcher.h; sourceTree = "<group>"; };
 		623311CB2234A0F50037E1BA /* PerformanceWatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerformanceWatcher.m; sourceTree = "<group>"; };
 		623311CD2234B5370037E1BA /* SGMainThreadStuttersMonitorController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGMainThreadStuttersMonitorController.h; sourceTree = "<group>"; };
@@ -66,12 +72,6 @@
 		623311D02234B7090037E1BA /* SGRunloopRunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRunloopRunes.swift; sourceTree = "<group>"; };
 		623BBF0F22315F1000D4AEDA /* SGRunloop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGRunloop.h; sourceTree = "<group>"; };
 		623BBF1022315F1000D4AEDA /* SGRunloop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGRunloop.m; sourceTree = "<group>"; };
-		2E0805D12234DC4A00599BC4 /* SGSwizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGSwizzle.h; sourceTree = "<group>"; };
-		2E0805D22234DC4A00599BC4 /* SGSwizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGSwizzle.m; sourceTree = "<group>"; };
-		2E0805D42234DC6600599BC4 /* SGSwizzleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGSwizzleController.h; sourceTree = "<group>"; };
-		2E0805D52234DC6600599BC4 /* SGSwizzleController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGSwizzleController.m; sourceTree = "<group>"; };
-		2E0805D82234E27D00599BC4 /* SGDynamic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGDynamic.h; sourceTree = "<group>"; };
-		2E0805D92234E27D00599BC4 /* SGDynamic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGDynamic.m; sourceTree = "<group>"; };
 		CB6052697F107E713D224B28 /* SGMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMessageController.h; sourceTree = "<group>"; };
 		CB6055337F3F4EECDB1C6A66 /* SGLogRune.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGLogRune.swift; sourceTree = "<group>"; };
 		CB605738EFCE9719FC3342FA /* SGObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGObject.m; sourceTree = "<group>"; };
@@ -110,9 +110,9 @@
 		2E08057F222FF77600599BC4 /* ReadyForSG */ = {
 			isa = PBXGroup;
 			children = (
-				623BBF0D22315AEE00D4AEDA /* 07Runloop */,
 				2E0805B6222FFDF800599BC4 /* 01UIAbout */,
 				2E0805CB22301FEB00599BC4 /* 02Runtime */,
+				623BBF0D22315AEE00D4AEDA /* 07Runloop */,
 				2E0805B5222FF8D500599BC4 /* Util */,
 				2E080580222FF77600599BC4 /* AppDelegate.swift */,
 				2E080587222FF77700599BC4 /* Assets.xcassets */,
@@ -179,6 +179,26 @@
 			path = 02Runtime;
 			sourceTree = "<group>";
 		};
+		2E0805D02234DBCB00599BC4 /* MethodSwizzling */ = {
+			isa = PBXGroup;
+			children = (
+				2E0805D12234DC4A00599BC4 /* SGSwizzle.h */,
+				2E0805D22234DC4A00599BC4 /* SGSwizzle.m */,
+				2E0805D42234DC6600599BC4 /* SGSwizzleController.h */,
+				2E0805D52234DC6600599BC4 /* SGSwizzleController.m */,
+			);
+			path = MethodSwizzling;
+			sourceTree = "<group>";
+		};
+		2E0805D72234E26100599BC4 /* Dynamic */ = {
+			isa = PBXGroup;
+			children = (
+				2E0805D82234E27D00599BC4 /* SGDynamic.h */,
+				2E0805D92234E27D00599BC4 /* SGDynamic.m */,
+			);
+			path = Dynamic;
+			sourceTree = "<group>";
+		};
 		623311C92234A0C20037E1BA /* PerformanceWatcher */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,24 +227,6 @@
 				623BBF1022315F1000D4AEDA /* SGRunloop.m */,
 			);
 			path = ConceptAndLifeCycle;
-		2E0805D02234DBCB00599BC4 /* MethodSwizzling */ = {
-			isa = PBXGroup;
-			children = (
-				2E0805D12234DC4A00599BC4 /* SGSwizzle.h */,
-				2E0805D22234DC4A00599BC4 /* SGSwizzle.m */,
-				2E0805D42234DC6600599BC4 /* SGSwizzleController.h */,
-				2E0805D52234DC6600599BC4 /* SGSwizzleController.m */,
-			);
-			path = MethodSwizzling;
-			sourceTree = "<group>";
-		};
-		2E0805D72234E26100599BC4 /* Dynamic */ = {
-			isa = PBXGroup;
-			children = (
-				2E0805D82234E27D00599BC4 /* SGDynamic.h */,
-				2E0805D92234E27D00599BC4 /* SGDynamic.m */,
-			);
-			path = Dynamic;
 			sourceTree = "<group>";
 		};
 		CB60526F9DD01D55731EDCD7 /* NSObject */ = {
