@@ -17,6 +17,7 @@ class SGSampleController: UIViewController, UITableViewDataSource, UITableViewDe
         SGRuntimeRunes(),
         SGRunloopRunes(),
         ReadyForWX.runes(),
+        SGBlockRunes(),
     ]
     
     

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18693E2C223011AE004F8885 /* SGCaptureParamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18693E2B223011AE004F8885 /* SGCaptureParamController.swift */; };
+		18693E2F2233735D004F8885 /* SGBlockRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18693E2E2233735D004F8885 /* SGBlockRunes.swift */; };
+		18693E332235116E004F8885 /* SSAutoreleasingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18693E322235116E004F8885 /* SSAutoreleasingTest.m */; };
 		2E080581222FF77600599BC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E080580222FF77600599BC4 /* AppDelegate.swift */; };
 		2E080588222FF77700599BC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E080587222FF77700599BC4 /* Assets.xcassets */; };
 		2E08058B222FF77700599BC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E080589222FF77700599BC4 /* LaunchScreen.storyboard */; };
@@ -38,6 +41,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18693E2B223011AE004F8885 /* SGCaptureParamController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGCaptureParamController.swift; sourceTree = "<group>"; };
+		18693E2E2233735D004F8885 /* SGBlockRunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGBlockRunes.swift; sourceTree = "<group>"; };
+		18693E312235116E004F8885 /* SSAutoreleasingTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSAutoreleasingTest.h; sourceTree = "<group>"; };
+		18693E322235116E004F8885 /* SSAutoreleasingTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSAutoreleasingTest.m; sourceTree = "<group>"; };
 		2E08057D222FF77600599BC4 /* ReadyForSG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadyForSG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E080580222FF77600599BC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E080587222FF77700599BC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +98,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18693E2D223372E2004F8885 /* CaptureParam */ = {
+			isa = PBXGroup;
+			children = (
+				18693E3022351146004F8885 /* autoreleaseing */,
+				18693E2B223011AE004F8885 /* SGCaptureParamController.swift */,
+			);
+			path = CaptureParam;
+			sourceTree = "<group>";
+		};
+		18693E3022351146004F8885 /* autoreleaseing */ = {
+			isa = PBXGroup;
+			children = (
+				18693E312235116E004F8885 /* SSAutoreleasingTest.h */,
+				18693E322235116E004F8885 /* SSAutoreleasingTest.m */,
+			);
+			path = autoreleaseing;
+			sourceTree = "<group>";
+		};
+		18A9001B222FFD7C00E75E71 /* 05Block */ = {
+			isa = PBXGroup;
+			children = (
+				18693E2D223372E2004F8885 /* CaptureParam */,
+				18693E2E2233735D004F8885 /* SGBlockRunes.swift */,
+			);
+			path = 05Block;
+			sourceTree = "<group>";
+		};
 		2E080574222FF77600599BC4 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +146,7 @@
 			children = (
 				2E0805B6222FFDF800599BC4 /* 01UIAbout */,
 				2E0805CB22301FEB00599BC4 /* 02Runtime */,
+				18A9001B222FFD7C00E75E71 /* 05Block */,
 				623BBF0D22315AEE00D4AEDA /* 07Runloop */,
 				2E0805B5222FF8D500599BC4 /* Util */,
 				2E080580222FF77600599BC4 /* AppDelegate.swift */,
@@ -329,6 +364,7 @@
 				2E0805CD2230202100599BC4 /* SGRuntimeRunes.swift in Sources */,
 				2E0805B4222FF8AD00599BC4 /* SGSampleRune.swift in Sources */,
 				623311CF2234B5370037E1BA /* SGMainThreadStuttersMonitorController.m in Sources */,
+				18693E332235116E004F8885 /* SSAutoreleasingTest.m in Sources */,
 				2E0805CF22336AF900599BC4 /* SGObjectS.swift in Sources */,
 				623311CC2234A0F50037E1BA /* PerformanceWatcher.m in Sources */,
 				2E0805BB222FFE4B00599BC4 /* SGHitTestView.swift in Sources */,
@@ -337,8 +373,10 @@
 				2E0805BD223004CA00599BC4 /* SGHitEmptyContainer.swift in Sources */,
 				2E0805D32234DC4A00599BC4 /* SGSwizzle.m in Sources */,
 				2E080581222FF77600599BC4 /* AppDelegate.swift in Sources */,
+				18693E2C223011AE004F8885 /* SGCaptureParamController.swift in Sources */,
 				2E0805B9222FFE2D00599BC4 /* SGHitTestController.swift in Sources */,
 				2E0805C622301D9800599BC4 /* SGUIAboutRunes.swift in Sources */,
+				18693E2F2233735D004F8885 /* SGBlockRunes.swift in Sources */,
 				2E0805CA22301F0D00599BC4 /* ReadyForWX.m in Sources */,
 				CB6054CE13A7667686D9E8BD /* SGObject.m in Sources */,
 				623BBF1122315F1000D4AEDA /* SGRunloop.m in Sources */,
