@@ -11,25 +11,24 @@ import UIKit
 class SGMessageControllerS: UIViewController {
 
     let action = SGActionRune()
-    let obj = SGObject()
+    let obj = SGObjectS()
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         
-        SGLogRune.instance.attach(view: view)
         action.attach(viewController: self)
         
         action.alert.addAction(UIAlertAction(title: "Call", style: .default, handler: { [weak self](_) in
-            self?.obj.test()
+            self?.obj.perform(NSSelectorFromString("test"))
         }))
         
     }
 
     static func rune() -> SGSampleRune {
         let rune = SGSampleRune(controller: self)
-        rune.decription = "NSObject MessageForward log"
+        rune.decription = "Swift NSObject MessageForward"
         return rune
     }
     
