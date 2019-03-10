@@ -38,7 +38,7 @@
 
 + (SGSampleRune *)rune {
     SGSampleRune *rune = [[SGSampleRune alloc] initWithController:self];
-    rune.decription = @"NSObject MessageForward log";
+    rune.decription = @"Object-C NSObject MessageForward";
     return rune;
 }
 

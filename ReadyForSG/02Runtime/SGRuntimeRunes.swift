@@ -16,7 +16,9 @@ class SGRuntimeRunes: SGSampleRunes {
     
     override func runesInSect() -> [SGSampleRune] {
         return [
-            SGMessageController.rune()
+            SGMessageController.rune(),
+            SGMessageControllerS.rune(),
+            SGSwizzleController.rune(),
         ]
     }
 }

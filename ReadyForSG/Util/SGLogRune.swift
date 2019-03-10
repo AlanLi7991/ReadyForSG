@@ -7,7 +7,8 @@ import Foundation
 
 class SGLogRune: NSObject, UITextViewDelegate {
 
-    @objc static public let instance = SGLogRune()
+    @objc static let instance = SGLogRune()
+    static var redirect = false
     
     let toHook = Pipe()
     let fromHook = Pipe()
@@ -15,7 +16,6 @@ class SGLogRune: NSObject, UITextViewDelegate {
 
     private override init() {
         super.init()
-        openConsolePipe()
     }
     
     public var active = false {
@@ -56,7 +56,13 @@ class SGLogRune: NSObject, UITextViewDelegate {
     }
 
     @objc func attach(view: UIView) {
-
+        
+        objc_sync_enter(self)
+        if !SGLogRune.redirect {
+            openConsolePipe()
+        }
+        objc_sync_exit(self)
+        
         let textView = UITextView()
         view.addSubview(textView)
         view.bringSubviewToFront(textView)
@@ -64,7 +70,7 @@ class SGLogRune: NSObject, UITextViewDelegate {
         textView.backgroundColor = UIColor.white.withAlphaComponent(0.7)
         textView.isEditable = false
         textView.isSelectable = false
-        textView.font = UIFont.systemFont(ofSize: 13)
+        textView.font = UIFont.systemFont(ofSize: 10)
         textView.textColor = UIColor.black
         textView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -72,8 +78,9 @@ class SGLogRune: NSObject, UITextViewDelegate {
         NSLayoutConstraint.activate([
             textView.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
             textView.rightAnchor.constraint(equalTo: guide.rightAnchor),
-            textView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            textView.heightAnchor.constraint(equalToConstant: 200),
+            textView.widthAnchor.constraint(equalTo: guide.widthAnchor),
+//            textView.heightAnchor.constraint(equalToConstant: 200),
+            textView.heightAnchor.constraint(equalTo: guide.heightAnchor, constant: 100),
         ])
         text = textView
         active = true
