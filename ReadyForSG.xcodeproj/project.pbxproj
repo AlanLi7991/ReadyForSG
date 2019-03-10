@@ -18,7 +18,7 @@
 		2E0805BB222FFE4B00599BC4 /* SGHitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805BA222FFE4B00599BC4 /* SGHitTestView.swift */; };
 		2E0805BD223004CA00599BC4 /* SGHitEmptyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805BC223004CA00599BC4 /* SGHitEmptyContainer.swift */; };
 		2E0805BF223004E000599BC4 /* SGHitExpandButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805BE223004E000599BC4 /* SGHitExpandButton.swift */; };
-		2E0805C2223010E300599BC4 /* SGSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805C1223010E300599BC4 /* SGSampleView.swift */; };
+		2E0805C2223010E300599BC4 /* SGCALayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805C1223010E300599BC4 /* SGCALayerView.swift */; };
 		2E0805C422301C6900599BC4 /* SGSampleRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805C322301C6900599BC4 /* SGSampleRunes.swift */; };
 		2E0805C622301D9800599BC4 /* SGUIAboutRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805C522301D9800599BC4 /* SGUIAboutRunes.swift */; };
 		2E0805CA22301F0D00599BC4 /* ReadyForWX.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805C922301F0D00599BC4 /* ReadyForWX.m */; };
@@ -27,6 +27,7 @@
 		2E0805D32234DC4A00599BC4 /* SGSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805D22234DC4A00599BC4 /* SGSwizzle.m */; };
 		2E0805D62234DC6600599BC4 /* SGSwizzleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805D52234DC6600599BC4 /* SGSwizzleController.m */; };
 		2E0805DA2234E27D00599BC4 /* SGDynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805D92234E27D00599BC4 /* SGDynamic.m */; };
+		2E0805DC2234F0AB00599BC4 /* SGCALayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0805DB2234F0AB00599BC4 /* SGCALayerController.swift */; };
 		CB6054CE13A7667686D9E8BD /* SGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CB605738EFCE9719FC3342FA /* SGObject.m */; };
 		CB605FA2A6E12B8A2E9E42E4 /* SGLogRune.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6055337F3F4EECDB1C6A66 /* SGLogRune.swift */; };
 		CB605FFBE510DF6F0242ECDD /* SGMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB605E11604C9552B5616B36 /* SGMessageController.m */; };
@@ -47,7 +48,7 @@
 		2E0805BA222FFE4B00599BC4 /* SGHitTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGHitTestView.swift; sourceTree = "<group>"; };
 		2E0805BC223004CA00599BC4 /* SGHitEmptyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGHitEmptyContainer.swift; sourceTree = "<group>"; };
 		2E0805BE223004E000599BC4 /* SGHitExpandButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGHitExpandButton.swift; sourceTree = "<group>"; };
-		2E0805C1223010E300599BC4 /* SGSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSampleView.swift; sourceTree = "<group>"; };
+		2E0805C1223010E300599BC4 /* SGCALayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCALayerView.swift; sourceTree = "<group>"; };
 		2E0805C322301C6900599BC4 /* SGSampleRunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGSampleRunes.swift; sourceTree = "<group>"; };
 		2E0805C522301D9800599BC4 /* SGUIAboutRunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGUIAboutRunes.swift; sourceTree = "<group>"; };
 		2E0805C722301F0D00599BC4 /* ReadyForSG-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReadyForSG-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -61,6 +62,7 @@
 		2E0805D52234DC6600599BC4 /* SGSwizzleController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGSwizzleController.m; sourceTree = "<group>"; };
 		2E0805D82234E27D00599BC4 /* SGDynamic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGDynamic.h; sourceTree = "<group>"; };
 		2E0805D92234E27D00599BC4 /* SGDynamic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGDynamic.m; sourceTree = "<group>"; };
+		2E0805DB2234F0AB00599BC4 /* SGCALayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCALayerController.swift; sourceTree = "<group>"; };
 		CB6052697F107E713D224B28 /* SGMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMessageController.h; sourceTree = "<group>"; };
 		CB6055337F3F4EECDB1C6A66 /* SGLogRune.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGLogRune.swift; sourceTree = "<group>"; };
 		CB605738EFCE9719FC3342FA /* SGObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGObject.m; sourceTree = "<group>"; };
@@ -139,10 +141,10 @@
 		2E0805B7222FFE0B00599BC4 /* HitTest */ = {
 			isa = PBXGroup;
 			children = (
-				2E0805B8222FFE2D00599BC4 /* SGHitTestController.swift */,
 				2E0805BA222FFE4B00599BC4 /* SGHitTestView.swift */,
 				2E0805BC223004CA00599BC4 /* SGHitEmptyContainer.swift */,
 				2E0805BE223004E000599BC4 /* SGHitExpandButton.swift */,
+				2E0805B8222FFE2D00599BC4 /* SGHitTestController.swift */,
 			);
 			path = HitTest;
 			sourceTree = "<group>";
@@ -150,7 +152,8 @@
 		2E0805C0223010B000599BC4 /* LayerAndView */ = {
 			isa = PBXGroup;
 			children = (
-				2E0805C1223010E300599BC4 /* SGSampleView.swift */,
+				2E0805C1223010E300599BC4 /* SGCALayerView.swift */,
+				2E0805DB2234F0AB00599BC4 /* SGCALayerController.swift */,
 			);
 			path = LayerAndView;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E0805DC2234F0AB00599BC4 /* SGCALayerController.swift in Sources */,
 				2E0805AF222FF88D00599BC4 /* SGSampleController.swift in Sources */,
 				2E0805B3222FF8AD00599BC4 /* SGActionRune.swift in Sources */,
 				DCDC861E22321D3D006ED299 /* SGMessageControllerS.swift in Sources */,
@@ -289,7 +293,7 @@
 				2E0805CF22336AF900599BC4 /* SGObjectS.swift in Sources */,
 				2E0805BB222FFE4B00599BC4 /* SGHitTestView.swift in Sources */,
 				2E0805BF223004E000599BC4 /* SGHitExpandButton.swift in Sources */,
-				2E0805C2223010E300599BC4 /* SGSampleView.swift in Sources */,
+				2E0805C2223010E300599BC4 /* SGCALayerView.swift in Sources */,
 				2E0805BD223004CA00599BC4 /* SGHitEmptyContainer.swift in Sources */,
 				2E0805D32234DC4A00599BC4 /* SGSwizzle.m in Sources */,
 				2E080581222FF77600599BC4 /* AppDelegate.swift in Sources */,

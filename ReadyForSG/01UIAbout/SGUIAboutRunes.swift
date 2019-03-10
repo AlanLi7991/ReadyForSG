@@ -17,7 +17,8 @@ class SGUIAboutRunes: SGSampleRunes {
     
     override func runesInSect() -> [SGSampleRune] {
         return [
-            SGHitTestController.rune()
+            SGHitTestController.rune(),
+            SGCALayerController.rune(),
         ]
     }
 

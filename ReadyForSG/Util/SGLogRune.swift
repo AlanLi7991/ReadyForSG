@@ -80,7 +80,7 @@ class SGLogRune: NSObject, UITextViewDelegate {
             textView.rightAnchor.constraint(equalTo: guide.rightAnchor),
             textView.widthAnchor.constraint(equalTo: guide.widthAnchor),
 //            textView.heightAnchor.constraint(equalToConstant: 200),
-            textView.heightAnchor.constraint(equalTo: guide.heightAnchor, constant: 100),
+            textView.heightAnchor.constraint(equalTo: guide.heightAnchor, constant: -50),
         ])
         text = textView
         active = true
