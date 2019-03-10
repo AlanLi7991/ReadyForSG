@@ -19,10 +19,24 @@ import UIKit
 ////////////////////////////// 局部变量 //////////////////////////////
 //MARK: 局部变量
 //  提前先知道的修饰符类型：
-//      1. __strong: 强引用对象
-//      2. __weak：弱引用对象，如果对象被释放，会置为nil
+//      1. __strong(OC/Swift): 强引用对象, 在ARC模式下使用的，在MRC与retain想对应，可引起对象的引用计数+1
+//      2. __weak(OC/Swift)：弱引用对象，如果对象被释放，会置为nil
 //      3. __unsafe_unretained(在swift叫unowned)：指针指向对象，当对象被释放掉时，会变成野指针
-//      4. __autoreleasing：告诉编译器，此对象在autorelease pool结束的时候，才释放对象
+//      4. __autoreleasing(OC)：告诉编译器，此对象在autorelease pool结束的时候，才释放对象
+//      5. assign(OC)：修饰非对象类型和基础数据类型的属性，不涉及内存管理，因此也不会被引用计数
+//      6. copy(OC)：创建一个新的对象，新对象的引用计数+1，但不会改变原来的对象的引用计数
+//      7. nonatomic(OC)：和atomic相对，是非原子性操作，非线程安全
+//      8. atomic(OC)：原子性操作，线程安全，但是会影响性能
+//      9. readwrite(OC)：可读可写，getter/setter
+//      10. readonly：可读不可写，getter
+//      11. writeonly：可写不可读，setter
+//  拓展知识：
+//  Swift 访问权限修饰符：
+//      1.open: 可以被任何模块访问到，可以在任何模块被子类化 or 重写
+//      2.public: 可以被任何模块访问到，只能在当前模块被子类化 or 重写
+//      3.internal: 只有在本模块内可以访问到
+//      4.fileprivate: 只有同一个文件内的才能访问到，比如在同一个文件下，声明了extension
+//      5.private: 只有类内部能访问，在extension中并不能访问
 //
 ///////////////////////////////////////////////////////////////////////
 
@@ -40,6 +54,9 @@ class SGCaptureParamController: UIViewController {
         action.attach(viewController: self)
         action.alert.addAction(UIAlertAction(title: "autoreleasing修饰符", style: .default, handler: { [weak self](_) in
             self?.autoreleasingModifier()
+        }))
+        action.alert.addAction(UIAlertAction(title: "swift静态局部变量实现", style: .default, handler: { [weak self](_) in
+            self?.addStaticLocalVar()
         }))
     }
     
@@ -67,6 +84,7 @@ class SGCaptureParamController: UIViewController {
         // 就是swift版的 static局部变量，需要跟着一个struct or class
         
         Temp.base += 1
+        print("static local Variable \(Temp.base)")
     }
     
     static func rune() -> SGSampleRune {
