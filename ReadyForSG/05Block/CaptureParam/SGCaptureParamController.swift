@@ -40,7 +40,6 @@ import UIKit
 //
 ///////////////////////////////////////////////////////////////////////
 
-
 class SGCaptureParamController: UIViewController {
     
     static var staticLocalVar = 1;
