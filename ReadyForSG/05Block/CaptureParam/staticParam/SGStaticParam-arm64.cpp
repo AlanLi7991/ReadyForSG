@@ -32662,7 +32662,13 @@ struct SGStaticParam_IMPL {
 
 #pragma clang assume_nonnull end
 
-static int staticGlobalVar = 10;
+
+static int staticGlobalVarInt = 10;
+static NSObject* staticGlobalVarObj = __null;
+
+
+int globalVarInt = 2;
+NSObject *globalVarObj = __null;
 
 // @interface SGStaticParam ()
 
@@ -32674,10 +32680,16 @@ static int staticGlobalVar = 10;
 // @implementation SGStaticParam
 
 
+
+
 struct __SGStaticParam__captureStaticGlobalVar_block_impl_0 {
   struct __block_impl impl;
   struct __SGStaticParam__captureStaticGlobalVar_block_desc_0* Desc;
-  __SGStaticParam__captureStaticGlobalVar_block_impl_0(void *fp, struct __SGStaticParam__captureStaticGlobalVar_block_desc_0 *desc, int flags=0) {
+  int *staticLocalVariableInt;
+  NSObject **staticLocalVariableObj;
+  int localVariableInt;
+  NSObject *localVariableObj;
+  __SGStaticParam__captureStaticGlobalVar_block_impl_0(void *fp, struct __SGStaticParam__captureStaticGlobalVar_block_desc_0 *desc, int *_staticLocalVariableInt, NSObject **_staticLocalVariableObj, int _localVariableInt, NSObject *_localVariableObj, int flags=0) : staticLocalVariableInt(_staticLocalVariableInt), staticLocalVariableObj(_staticLocalVariableObj), localVariableInt(_localVariableInt), localVariableObj(_localVariableObj) {
     impl.isa = &_NSConcreteStackBlock;
     impl.Flags = flags;
     impl.FuncPtr = fp;
@@ -32685,17 +32697,58 @@ struct __SGStaticParam__captureStaticGlobalVar_block_impl_0 {
   }
 };
 static void __SGStaticParam__captureStaticGlobalVar_block_func_0(struct __SGStaticParam__captureStaticGlobalVar_block_impl_0 *__cself) {
+  int *staticLocalVariableInt = __cself->staticLocalVariableInt; // bound by copy
+  NSObject **staticLocalVariableObj = __cself->staticLocalVariableObj; // bound by copy
+  int localVariableInt = __cself->localVariableInt; // bound by copy
+  NSObject *localVariableObj = __cself->localVariableObj; // bound by copy
 
-        int b = staticGlobalVar;
-    }
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+
+ int g = globalVarInt;
+        NSObject *h = globalVarObj;
+
+
+        int a = staticGlobalVarInt;
+        NSObject *f = staticGlobalVarObj;
+
+
+        int b = (*staticLocalVariableInt);
+        NSObject *c = (*staticLocalVariableObj);
+
+
+        int d = localVariableInt;
+        NSObject *e = localVariableObj;
+#pragma clang diagostic pop
+ }
+static void __SGStaticParam__captureStaticGlobalVar_block_copy_0(struct __SGStaticParam__captureStaticGlobalVar_block_impl_0*dst, struct __SGStaticParam__captureStaticGlobalVar_block_impl_0*src) {_Block_object_assign((void*)&dst->staticLocalVariableObj, (void*)src->staticLocalVariableObj, 3/*BLOCK_FIELD_IS_OBJECT*/);_Block_object_assign((void*)&dst->localVariableObj, (void*)src->localVariableObj, 3/*BLOCK_FIELD_IS_OBJECT*/);}
+
+static void __SGStaticParam__captureStaticGlobalVar_block_dispose_0(struct __SGStaticParam__captureStaticGlobalVar_block_impl_0*src) {_Block_object_dispose((void*)src->staticLocalVariableObj, 3/*BLOCK_FIELD_IS_OBJECT*/);_Block_object_dispose((void*)src->localVariableObj, 3/*BLOCK_FIELD_IS_OBJECT*/);}
 
 static struct __SGStaticParam__captureStaticGlobalVar_block_desc_0 {
   size_t reserved;
   size_t Block_size;
-} __SGStaticParam__captureStaticGlobalVar_block_desc_0_DATA = { 0, sizeof(struct __SGStaticParam__captureStaticGlobalVar_block_impl_0)};
+  void (*copy)(struct __SGStaticParam__captureStaticGlobalVar_block_impl_0*, struct __SGStaticParam__captureStaticGlobalVar_block_impl_0*);
+  void (*dispose)(struct __SGStaticParam__captureStaticGlobalVar_block_impl_0*);
+} __SGStaticParam__captureStaticGlobalVar_block_desc_0_DATA = { 0, sizeof(struct __SGStaticParam__captureStaticGlobalVar_block_impl_0), __SGStaticParam__captureStaticGlobalVar_block_copy_0, __SGStaticParam__captureStaticGlobalVar_block_dispose_0};
 
 static void _I_SGStaticParam_captureStaticGlobalVar(SGStaticParam * self, SEL _cmd) {
-    ((void (*)(id, SEL, void (*)()))(void *)objc_msgSend)((id)self, sel_registerName("setBlock:"), ((void (*)())&__SGStaticParam__captureStaticGlobalVar_block_impl_0((void *)__SGStaticParam__captureStaticGlobalVar_block_func_0, &__SGStaticParam__captureStaticGlobalVar_block_desc_0_DATA)));
+
+    staticGlobalVarObj = ((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("NSObject"), sel_registerName("alloc")), sel_registerName("init"));
+
+
+    globalVarObj = ((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("NSObject"), sel_registerName("alloc")), sel_registerName("init"));
+
+
+    static int staticLocalVariableInt = 1;
+    static NSObject *staticLocalVariableObj = __null;
+    staticLocalVariableObj = ((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("NSObject"), sel_registerName("alloc")), sel_registerName("init"));
+
+
+    int localVariableInt = 1;
+    NSObject *localVariableObj = ((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("NSObject"), sel_registerName("alloc")), sel_registerName("init"));
+
+    ((void (*)(id, SEL, void (*)()))(void *)objc_msgSend)((id)self, sel_registerName("setBlock:"), ((void (*)())&__SGStaticParam__captureStaticGlobalVar_block_impl_0((void *)__SGStaticParam__captureStaticGlobalVar_block_func_0, &__SGStaticParam__captureStaticGlobalVar_block_desc_0_DATA, &staticLocalVariableInt, &staticLocalVariableObj, localVariableInt, localVariableObj, 570425344)));
 }
 
 

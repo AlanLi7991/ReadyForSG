@@ -38,6 +38,19 @@ import UIKit
 //      4.fileprivate: 只有同一个文件内的才能访问到，比如在同一个文件下，声明了extension
 //      5.private: 只有类内部能访问，在extension中并不能访问
 //
+//  Swift所有权宣言（可以找时间细读，关于swift的内存处理的优化）：https://onevcat.com/2017/02/ownership/
+///////////////////////////////////////////////////////////////////////
+
+////////////////////////////// Block的结构 //////////////////////////////
+//
+//  还是可以的介绍Block结构是怎样：http://liuduo.me/2018/02/19/block-impl/
+//  _block_impl_0：总的struct结构
+//  _block_func_0: block内的实现函数
+//  _block_desc_0: 关于block的基本信息（内存占多少，copy的函数指针，dispose函数指针）
+//
+//  _Block_object_assign: 会对对象引用计数加1 (https://juejin.im/post/5b29f5f56fb9a00e985f2e1a)
+//  _Block_object_dispose: 销毁对象
+//
 ///////////////////////////////////////////////////////////////////////
 
 class SGCaptureParamController: UIViewController {
