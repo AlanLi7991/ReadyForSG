@@ -286,6 +286,7 @@
  * 参考文章：
  * https://stackoverflow.com/questions/28581489/what-is-the-objc-selector-implementation/28581632#28581632
  * https://blog.csdn.net/jeffasd/article/details/52084639
+ * typedef （struct objc_class） 【is】 （object pointed to by）* Class;
  */
 
 @interface SGObject : NSObject
@@ -293,3 +294,15 @@
 - (void)test;
 
 @end
+
+
+//----------------------------------------------------------------------------//
+#pragma mark - 类方法和实例方法是否存在一起
+//----------------------------------------------------------------------------//
+
+/**
+ * 并不是
+ * 1. Instance Method 存在Class里
+ * 2. Class Method 存在Meta Class里
+ */
+

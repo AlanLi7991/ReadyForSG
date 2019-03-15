@@ -109,7 +109,7 @@
  * typedef 返回值 _Nullable (函数名)(参数1 _Nonnull, 参数2 _Nonnull, ...)
  *
  * 也就是说 *IMP = 函数名，* 取原文 object of 得到
- * object of IMP = 函数名，所以 IMP是某个函数的地址
+ * object point to by IMP = 函数名，所以 IMP是某个函数的地址
  *
  * 考点: 如何通过SEL变成IMP
  *
