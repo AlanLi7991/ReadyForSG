@@ -64,6 +64,7 @@
 /**
  * Runloop的Source可以自定义，苹果默认定义了两种实现，Source0和Source1。
  * 1. Source0负责App内部事件，由App管理触发，如UITouch事件，这类Source需要手动触发唤醒Runloop
+ *    CFRunLoopSourceSignal(CFRunLoopSourceRef source)
  * 2. Source1是基于Port的，除了包含回调指针外还包含一个mach port。不同于Source0，
  *    Source1可以监听系统端口和其他线程通信，它能够主动唤醒Runloop
  */
@@ -114,7 +115,7 @@
  * 3. 通知observer即将处理source0（kCFRunLoopBeforeSources）
  * 4. 处理非延迟的主线程调用
  * 5. 处理source0事件
- * 6. 判断是否存在source1，若存在source1，直接跳到第10步
+ * 6. 判断是否存在source1，若存在source1，直接跳到第10.c步
  * 7. 通知observer即将进入休眠状态（kCFRunLoopBeforeWaiting）
  * 8. 有事件唤醒runloop，如source0手动触发、source1主动唤醒、
       timer主动唤醒、dispatch_main_queue唤醒
@@ -163,9 +164,11 @@
  * Runloop真正执行事件是在kCFRunLoopBeforeSources和kCFRunLoopAfterWaiting之后，
  * 通过计算kCFRunLoopBeforeSources到kCFRunLoopBeforeWaiting的时间，或者
  * kCFRunLoopAfterWaiting到kCFRunLoopBeforeTimers之前的运行时间，定一个标准，
- * 如执行超过30ms认为是卡顿。依此原理来检测主线程卡顿
+ * 如执行超过50ms认为是卡顿。依此原理来检测主线程卡顿
  * 补充：这里只是监测卡顿，无法捕获卡顿时的线程堆栈。可以配合信号量获取主线程的堆栈。
  * http://mrpeak.cn/blog/ui-detect/
+ * https://blog.csdn.net/abc649395594/article/details/52350426
+ * pro hand -p true -s false SIGABRT//让编译器不处理该信号
  */
 
 //----------------------------------------------------------------------------//
