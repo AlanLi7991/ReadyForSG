@@ -10,6 +10,7 @@
 		18693E2C223011AE004F8885 /* SGCaptureParamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18693E2B223011AE004F8885 /* SGCaptureParamController.swift */; };
 		18693E2F2233735D004F8885 /* SGBlockRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18693E2E2233735D004F8885 /* SGBlockRunes.swift */; };
 		18693E332235116E004F8885 /* SSAutoreleasingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18693E322235116E004F8885 /* SSAutoreleasingTest.m */; };
+		18B6CD5F2236951700C9DAEC /* SGStaticParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B6CD5E2236951700C9DAEC /* SGStaticParam.m */; };
 		2E080581222FF77600599BC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E080580222FF77600599BC4 /* AppDelegate.swift */; };
 		2E080588222FF77700599BC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E080587222FF77700599BC4 /* Assets.xcassets */; };
 		2E08058B222FF77700599BC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E080589222FF77700599BC4 /* LaunchScreen.storyboard */; };
@@ -48,6 +49,8 @@
 		18693E2E2233735D004F8885 /* SGBlockRunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGBlockRunes.swift; sourceTree = "<group>"; };
 		18693E312235116E004F8885 /* SSAutoreleasingTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSAutoreleasingTest.h; sourceTree = "<group>"; };
 		18693E322235116E004F8885 /* SSAutoreleasingTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSAutoreleasingTest.m; sourceTree = "<group>"; };
+		18B6CD5D2236951700C9DAEC /* SGStaticParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGStaticParam.h; sourceTree = "<group>"; };
+		18B6CD5E2236951700C9DAEC /* SGStaticParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGStaticParam.m; sourceTree = "<group>"; };
 		2E08057D222FF77600599BC4 /* ReadyForSG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadyForSG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E080580222FF77600599BC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E080587222FF77700599BC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 		18693E2D223372E2004F8885 /* CaptureParam */ = {
 			isa = PBXGroup;
 			children = (
+				18B6CD5C223694A300C9DAEC /* staticParam */,
 				18693E3022351146004F8885 /* autoreleaseing */,
 				18693E2B223011AE004F8885 /* SGCaptureParamController.swift */,
 			);
@@ -129,6 +133,15 @@
 				18693E2E2233735D004F8885 /* SGBlockRunes.swift */,
 			);
 			path = 05Block;
+			sourceTree = "<group>";
+		};
+		18B6CD5C223694A300C9DAEC /* staticParam */ = {
+			isa = PBXGroup;
+			children = (
+				18B6CD5D2236951700C9DAEC /* SGStaticParam.h */,
+				18B6CD5E2236951700C9DAEC /* SGStaticParam.m */,
+			);
+			path = staticParam;
 			sourceTree = "<group>";
 		};
 		2E080574222FF77600599BC4 = {
@@ -402,6 +415,7 @@
 				623BBF1122315F1000D4AEDA /* SGRunloop.m in Sources */,
 				2E0805DA2234E27D00599BC4 /* SGDynamic.m in Sources */,
 				CB605FA2A6E12B8A2E9E42E4 /* SGLogRune.swift in Sources */,
+				18B6CD5F2236951700C9DAEC /* SGStaticParam.m in Sources */,
 				623311D12234B7090037E1BA /* SGRunloopRunes.swift in Sources */,
 				CB605FFBE510DF6F0242ECDD /* SGMessageController.m in Sources */,
 			);
