@@ -64,6 +64,19 @@ import UIKit
 //
 ///////////////////////////////////////////////////////////////////////
 
+////////////////////////////// Block类型 //////////////////////////////
+//
+//  所有的block类型，引用计数都永远是1
+//
+//  全局Block (_NSConcreteGlobalBlock)：引用的是，全局变量，全局静态变量，静态变量
+//      1. 不会capture变量
+//  栈区Block (_NSConcreteStackBlock)：引用局部变量，而又没被copy，strong的block
+//      1. capture临时变量会引用计数+1
+//  堆区Block（_NSConcreteMallocBlock）：引用局部变量，被copy，strong的block;或者作为返回值；被usingBlock，或者GCD传递Block的API调用。它们会调用copy方法
+//      1. 栈区的block，被copy到堆区的block时，引用也会+1. 但是后续的copy，引用不会再变化。
+//
+///////////////////////////////////////////////////////////////////////
+
 ////////////////////////////// Block截获变量方式 //////////////////////////////
 //
 //  静态全局变量，全局变量：不会截获，它都全局可以拿到，截获又有什么意义
@@ -78,6 +91,8 @@ import UIKit
 //  静态全局变量，全局变量：不会截获，它都全局可以拿到，截获又有什么意义
 //  局部变量: 基础数据类型，只是进行值传递。对象类型，把整个指针存起来（即连所有权修饰符都获取了）
 //      【进阶】静态局部变量：通过保存其地址的方式，存储变量。（指针的指针，保持对象类型。指针，保存基础类型（int，float等））
+//
+//  __block变量会将变量从『栈内存』放到『堆内存』：https://www.jianshu.com/p/404ff9d3cd42
 //
 ///////////////////////////////////////////////////////////////////////
 
@@ -134,6 +149,14 @@ class SGCaptureParamController: UIViewController {
         action.alert.addAction(UIAlertAction(title: "oc各种静态变量捕获", style: .default, handler: { [weak self](_) in
             self?.ocCaptureFunctionCall();
         }))
+        action.alert.addAction(UIAlertAction(title: "block类型调用", style: .default, handler: { [weak self](_) in
+            self?.ocBlockTypeCall();
+        }))
+    }
+    
+    func ocBlockTypeCall() -> Void {
+        let blockTypeObj = SGBlockType()
+        blockTypeObj.testAllBlock();
     }
     
     func ocCaptureFunctionCall() -> Void {
