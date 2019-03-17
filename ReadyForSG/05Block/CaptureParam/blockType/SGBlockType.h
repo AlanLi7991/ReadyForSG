@@ -1,8 +1,8 @@
 //
-//  SGStaticParam.h
+//  SGBlockType.h
 //  ReadyForSG
 //
-//  Created by Vince.Zheng on 2019/3/11.
+//  Created by Vince.Zheng on 2019/3/17.
 //  Copyright © 2019 Alanli7991. All rights reserved.
 //
 
@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SGStaticParam : NSObject
+@interface SGBlockType : NSObject
 
-- (void)captureStaticGlobalVar;
+- (void)testAllBlock;
 
 @end
 

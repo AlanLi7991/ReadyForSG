@@ -17,3 +17,5 @@
 #import "SGMainThreadStuttersMonitorController.h"
 #import "SGSwizzleController.h"
 #import "SSAutoreleasingTest.h"
+#import "SGStaticParam.h"
+#import "SGBlockType.h"
