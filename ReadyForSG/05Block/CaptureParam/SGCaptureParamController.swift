@@ -30,6 +30,10 @@ import UIKit
 //      9. readwrite(OC)：可读可写，getter/setter
 //      10. readonly：可读不可写，getter
 //      11. writeonly：可写不可读，setter
+//
+//  区别知识点：
+//      1. strong & copy的区别使用：https://juejin.im/post/5b6be76b6fb9a04fdf3a099d
+//
 //  拓展知识：
 //  Swift 访问权限修饰符：
 //      1.open: 可以被任何模块访问到，可以在任何模块被子类化 or 重写
@@ -44,12 +48,84 @@ import UIKit
 ////////////////////////////// Block的结构 //////////////////////////////
 //
 //  还是可以的介绍Block结构是怎样：http://liuduo.me/2018/02/19/block-impl/
-//  _block_impl_0：总的struct结构
+//  struct __block_impl {
+//      void *isa;
+//      int Flags;
+//      int Reserved;
+//      void *FuncPtr;
+//  };
+//
+//  _block_impl_0：总的struct结构(__block_impl, _block_desc_0, capture的变量）
 //  _block_func_0: block内的实现函数
 //  _block_desc_0: 关于block的基本信息（内存占多少，copy的函数指针，dispose函数指针）
 //
 //  _Block_object_assign: 会对对象引用计数加1 (https://juejin.im/post/5b29f5f56fb9a00e985f2e1a)
 //  _Block_object_dispose: 销毁对象
+//
+///////////////////////////////////////////////////////////////////////
+
+////////////////////////////// Block类型 //////////////////////////////
+//
+//  所有的block类型，引用计数都永远是1
+//
+//  全局Block (_NSConcreteGlobalBlock)：引用的是，全局变量，全局静态变量，静态变量
+//      1. 不会capture变量
+//  栈区Block (_NSConcreteStackBlock)：引用局部变量，而又没被copy，strong的block
+//      1. capture临时变量会引用计数+1
+//  堆区Block（_NSConcreteMallocBlock）：引用局部变量，被copy，strong的block;或者作为返回值；被usingBlock，或者GCD传递Block的API调用。它们会调用copy方法
+//      1. 栈区的block，被copy到堆区的block时，引用也会+1. 但是后续的copy，引用不会再变化。
+//
+///////////////////////////////////////////////////////////////////////
+
+////////////////////////////// Block截获变量方式 //////////////////////////////
+//
+//  静态全局变量，全局变量：不会截获，它都全局可以拿到，截获又有什么意义
+//  局部变量: 基础数据类型，只是进行值传递。对象类型，把整个指针存起来（即连所有权修饰符都获取了）
+//      【进阶】静态局部变量：通过保存其地址的方式，存储变量。（指针的指针，保持对象类型。指针，保存基础类型（int，float等））
+//
+///////////////////////////////////////////////////////////////////////
+
+////////////////////////////// __block修饰符 //////////////////////////////
+//
+//  什么时候需要__block修饰符
+//  静态全局变量，全局变量：不会截获，它都全局可以拿到，截获又有什么意义
+//  局部变量: 基础数据类型，只是进行值传递。对象类型，把整个指针存起来（即连所有权修饰符都获取了）
+//      【进阶】静态局部变量：通过保存其地址的方式，存储变量。（指针的指针，保持对象类型。指针，保存基础类型（int，float等））
+//
+//  __block变量会将变量从『栈内存』放到『堆内存』：https://www.jianshu.com/p/404ff9d3cd42
+//
+///////////////////////////////////////////////////////////////////////
+
+////////////////////////////// clang基本使用 //////////////////////////////
+//
+//  编译过程讲解：《Compilers: Principles, Techniques, and Tools》龙书
+//
+//  clang: 官网介绍 https://clang.llvm.org/index.html
+//  clang的由来：https://juejin.im/post/5b238f5be51d45587f49f380
+//  1. AST信息可序列化，供IDE更强操控代码(代码补全，重构）
+//  2. 可以做到动态检查，以往都是静态检查
+//
+//  可以使用以下的指令，把SGStaticParam文件 转化成 C++语言
+//  比如：xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc -fobjc-arc -fobjc-runtime=ios-9.0.0 -stdlib=libc++ SGStaticParam.m
+//  xcrun -sdk iphoneos用于查找到iPhone真机的库
+//  fobjc-runtime=<value>: Specify the target Objective-C runtime kind and version
+//
+//  gcc编译过程: http://chengqian90.com/C%E8%AF%AD%E8%A8%80/GCC%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E8%AF%A6%E8%A7%A3.html
+//  源文件=》预处理（cpp）=》纯C=》编译器=》汇编程序=》汇编器=》目标文件=》链接器=》可执行文件
+//
+//  gcc 与 clang 的区别：http://www.voidcn.com/article/p-rtbcbgcs-bms.html
+//
+//  LLVM三层式架构：(https://objccn.io/issue-6-2/【重点可以看下，预编译优化，如何构建自己clang】)
+//      1.前端语言的转化(clang)
+//      2.共享式的优化器（LLVM IR【LLVM Intermediate Representation(LLVM 中间表达码)】做优化）
+//      3.将中间表达码，转化成目标平台文件
+//
+///////////////////////////////////////////////////////////////////////
+
+////////////////////////////// 面试题 //////////////////////////////
+//
+//  __block在ARC，MRC的区别：https://ioscaff.com/articles/276
+//  assign vs weak, __block vs __weak区别：https://www.jianshu.com/p/2aacbc9c66df
 //
 ///////////////////////////////////////////////////////////////////////
 
@@ -70,6 +146,22 @@ class SGCaptureParamController: UIViewController {
         action.alert.addAction(UIAlertAction(title: "swift静态局部变量实现", style: .default, handler: { [weak self](_) in
             self?.addStaticLocalVar()
         }))
+        action.alert.addAction(UIAlertAction(title: "oc各种静态变量捕获", style: .default, handler: { [weak self](_) in
+            self?.ocCaptureFunctionCall();
+        }))
+        action.alert.addAction(UIAlertAction(title: "block类型调用", style: .default, handler: { [weak self](_) in
+            self?.ocBlockTypeCall();
+        }))
+    }
+    
+    func ocBlockTypeCall() -> Void {
+        let blockTypeObj = SGBlockType()
+        blockTypeObj.testAllBlock();
+    }
+    
+    func ocCaptureFunctionCall() -> Void {
+        let test = SGStaticParam();
+        test.captureStaticGlobalVar();
     }
     
     func autoreleasingModifier() {

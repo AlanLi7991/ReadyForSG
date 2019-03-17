@@ -18,14 +18,14 @@ NSObject *globalVarObj = nil;
 
 @interface SGStaticParam ()
 
-@property (nonatomic, copy) void(^block)();
+@property (nonatomic, copy) void(^memberCopyVar)(void);
 
 @end
 
 @implementation SGStaticParam
 
 // 使用以下的命令，即可完成OC转C++
-// xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc SGStaticParam.m -o SGStaticParam-arm64.cpp
+// xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc -fobjc-arc -fblocks -fobjc-runtime=ios-9.0.0 -stdlib=libc++ SGStaticParam.m
 - (void)captureStaticGlobalVar {
     // 静态全局变量
     staticGlobalVarObj = [[NSObject alloc] init];
@@ -42,9 +42,18 @@ NSObject *globalVarObj = nil;
     int localVariableInt = 1;
     NSObject *localVariableObj = [[NSObject alloc] init];
     
-    self.block = ^() {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-variable"
+    // 去掉警告：不安全的指针赋值
+#pragma clang diagnostic ignored "-Warc-unsafe-retained-assign"
+    
+    __weak NSObject *weakLocalParamPtr = [[NSObject alloc] init];
+    
+    __block int blockModifierInt = 1;
+    __block NSObject *blockModifierObj = [[NSObject alloc] init];
+    
+//    __weak void (^tempBlock)(void) = ^() {
+    void (^tempBlock)(void) = ^() {
         // 全局变量
         int g = globalVarInt;
         NSObject *h = globalVarObj;
@@ -60,8 +69,21 @@ NSObject *globalVarObj = nil;
         // 局部变量
         int d = localVariableInt;
         NSObject *e = localVariableObj;
-#pragma clang diagostic pop
+        
+        // 所有权局部变量指针
+        NSObject *i = weakLocalParamPtr;
+        
+        // block修饰符
+        blockModifierInt += 1;
+        [blockModifierObj copy];
     };
+    // 全局Block (_NSConcreteGlobalBlock)：引用的是，全局变量，全局静态变量，静态变量
+    // 栈区Block (_NSConcreteStackBlock)：引用局部变量，而又没被copy，strong的block
+    // 堆区Block（_NSConcreteMallocBlock）：引用局部变量，被copy，strong的block
+    self.memberCopyVar = tempBlock;
+    self.memberCopyVar();
+    
+#pragma clang diagostic pop
 }
 
 @end
