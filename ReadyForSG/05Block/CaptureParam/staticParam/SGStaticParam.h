@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SGStaticParam : NSObject
 
+- (void)captureStaticGlobalVar;
+
 @end
 
 NS_ASSUME_NONNULL_END
