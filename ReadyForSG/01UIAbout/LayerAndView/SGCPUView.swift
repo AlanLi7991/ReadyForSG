@@ -9,7 +9,7 @@
 import UIKit
 
 //-----------------------------------------------------------------------------
-//MARK: 总结CPU优化的注意点
+//MARK: CPU优化的注意点
 //前提:
 // 1. 单核时代不用考虑CPU优化，因为只有一个CPU只能支持主线程
 // 2. 多核时代可以利用第二个CPU进行一些运算，但是底层代码还是单线程的，所以才有了优化的空间
@@ -201,6 +201,7 @@ class SGCPUView: UIView {
     //-----------------------------------------------------------------------------
     // 添加Runloop进行统一绘制
     // YYKit:
+    // https://github.com/ibireme/YYAsyncLayer/blob/master/YYAsyncLayer/YYTransaction.m
     // 1. YYKit使用了一个 YYTransaction 对象保存了所有需要CPU绘制的操作的target+selector
     // 2. 同时引入了一个计数器 YYSentinel 每次setNeedsDisplay()都会 +1
     // 3. 在开始逃逸主线程时候Capture一个 sentinel.count

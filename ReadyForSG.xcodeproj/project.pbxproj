@@ -37,6 +37,7 @@
 		2E55681D223A9B2000BA3C09 /* SGCALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E55681C223A9B2000BA3C09 /* SGCALayer.swift */; };
 		2E55681F223BF3CA00BA3C09 /* SGCPUView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E55681E223BF3CA00BA3C09 /* SGCPUView.swift */; };
 		2E556821223BF3D500BA3C09 /* SGGPUView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E556820223BF3D500BA3C09 /* SGGPUView.swift */; };
+		2E556823223FCD6500BA3C09 /* SGOffScreenLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E556822223FCD6500BA3C09 /* SGOffScreenLayer.swift */; };
 		623311CC2234A0F50037E1BA /* PerformanceWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 623311CB2234A0F50037E1BA /* PerformanceWatcher.m */; };
 		623311CF2234B5370037E1BA /* SGMainThreadStuttersMonitorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 623311CE2234B5370037E1BA /* SGMainThreadStuttersMonitorController.m */; };
 		623311D12234B7090037E1BA /* SGRunloopRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623311D02234B7090037E1BA /* SGRunloopRunes.swift */; };
@@ -88,6 +89,7 @@
 		2E55681C223A9B2000BA3C09 /* SGCALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCALayer.swift; sourceTree = "<group>"; };
 		2E55681E223BF3CA00BA3C09 /* SGCPUView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCPUView.swift; sourceTree = "<group>"; };
 		2E556820223BF3D500BA3C09 /* SGGPUView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGGPUView.swift; sourceTree = "<group>"; };
+		2E556822223FCD6500BA3C09 /* SGOffScreenLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGOffScreenLayer.swift; sourceTree = "<group>"; };
 		623311CA2234A0F50037E1BA /* PerformanceWatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerformanceWatcher.h; sourceTree = "<group>"; };
 		623311CB2234A0F50037E1BA /* PerformanceWatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerformanceWatcher.m; sourceTree = "<group>"; };
 		623311CD2234B5370037E1BA /* SGMainThreadStuttersMonitorController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGMainThreadStuttersMonitorController.h; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				2E0805C1223010E300599BC4 /* SGCALayerView.swift */,
 				2E0805DB2234F0AB00599BC4 /* SGCALayerController.swift */,
 				2E55681C223A9B2000BA3C09 /* SGCALayer.swift */,
+				2E556822223FCD6500BA3C09 /* SGOffScreenLayer.swift */,
 			);
 			path = LayerAndView;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				2E0805D32234DC4A00599BC4 /* SGSwizzle.m in Sources */,
 				2E080581222FF77600599BC4 /* AppDelegate.swift in Sources */,
 				18693E2C223011AE004F8885 /* SGCaptureParamController.swift in Sources */,
+				2E556823223FCD6500BA3C09 /* SGOffScreenLayer.swift in Sources */,
 				2E0805B9222FFE2D00599BC4 /* SGHitTestController.swift in Sources */,
 				2E0805C622301D9800599BC4 /* SGUIAboutRunes.swift in Sources */,
 				18693E2F2233735D004F8885 /* SGBlockRunes.swift in Sources */,

@@ -17,7 +17,7 @@ class SGCALayerController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         
-//        SGLogRune.instance.attach(view: self.view)
+        SGLogRune.instance.attach(view: self.view)
         action.attach(viewController: self)
         
         action.alert.addAction(UIAlertAction(title: "Red", style: .default, handler: { [weak self](_) in
