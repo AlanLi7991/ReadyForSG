@@ -56,8 +56,28 @@ import UIKit
 // 3. 步骤2的消耗对于GPU来讲，可能比整个绘制过程还要大
 // 4. 好巧不巧 CoreGraphics 的离屏渲染就是3描述的这么挫，所以要避免
 //-----------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------
+// MARK: 什么是上下文切换(Context switch)
 //
+// 参考:
+// https://en.wikipedia.org/wiki/Context_switch
+// https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#context
 //
+// Wiki原文重点
+// In computing, a context switch is the process of storing the state of a process or of a thread
+// so that it can be restored and execution resumed from the same point later.
+// This allows multiple processes to share a single CPU
+// and is an essential feature of a multitasking operating system.
+//
+// 1. 上下文切换是指把当前的硬件状态保存在某一块内存
+// 2. 保存的作用是让当前的操作是可恢复继续执行的
+// 3. 最开始的时候是为了使用单核来进行多任务
+// 4. 后来变成了多任务的核心
+//
+// 补充知识点:
+// 1. 上下文(Context)是对硬件状态的描述
+// 2. 分为软件切换和硬件切换(早期)
 //-----------------------------------------------------------------------------
 
 

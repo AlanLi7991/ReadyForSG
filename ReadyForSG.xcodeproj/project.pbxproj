@@ -45,6 +45,10 @@
 		CB6054CE13A7667686D9E8BD /* SGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CB605738EFCE9719FC3342FA /* SGObject.m */; };
 		CB605FA2A6E12B8A2E9E42E4 /* SGLogRune.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6055337F3F4EECDB1C6A66 /* SGLogRune.swift */; };
 		CB605FFBE510DF6F0242ECDD /* SGMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB605E11604C9552B5616B36 /* SGMessageController.m */; };
+		DC34257D2240C94F007405B4 /* 03.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC34257C2240C94F007405B4 /* 03.swift */; };
+		DC34257F2240C95B007405B4 /* 08.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC34257E2240C95B007405B4 /* 08.swift */; };
+		DC3425812240C963007405B4 /* 10.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3425802240C963007405B4 /* 10.swift */; };
+		DC3425832240C96A007405B4 /* 12.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3425822240C96A007405B4 /* 12.swift */; };
 		DCDC861E22321D3D006ED299 /* SGMessageControllerS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDC861D22321D3D006ED299 /* SGMessageControllerS.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +106,10 @@
 		CB605738EFCE9719FC3342FA /* SGObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGObject.m; sourceTree = "<group>"; };
 		CB605E11604C9552B5616B36 /* SGMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGMessageController.m; sourceTree = "<group>"; };
 		CB605FA4F6B7A050DD42C83D /* SGObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGObject.h; sourceTree = "<group>"; };
+		DC34257C2240C94F007405B4 /* 03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 03.swift; sourceTree = "<group>"; };
+		DC34257E2240C95B007405B4 /* 08.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 08.swift; sourceTree = "<group>"; };
+		DC3425802240C963007405B4 /* 10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 10.swift; sourceTree = "<group>"; };
+		DC3425822240C96A007405B4 /* 12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 12.swift; sourceTree = "<group>"; };
 		DCDC861D22321D3D006ED299 /* SGMessageControllerS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGMessageControllerS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,8 +192,12 @@
 			children = (
 				2E0805B6222FFDF800599BC4 /* 01UIAbout */,
 				2E0805CB22301FEB00599BC4 /* 02Runtime */,
+				DC3425782240C824007405B4 /* 03ObjectiveC */,
 				18A9001B222FFD7C00E75E71 /* 05Block */,
 				623BBF0D22315AEE00D4AEDA /* 07Runloop */,
+				DC3425792240C845007405B4 /* 08Network */,
+				DC34257A2240C853007405B4 /* 10CacheLog */,
+				DC34257B2240C891007405B4 /* 12ThirdPart */,
 				2E0805B5222FF8D500599BC4 /* Util */,
 				2E080580222FF77600599BC4 /* AppDelegate.swift */,
 				2E080587222FF77700599BC4 /* Assets.xcassets */,
@@ -326,6 +338,38 @@
 			path = NSObject;
 			sourceTree = "<group>";
 		};
+		DC3425782240C824007405B4 /* 03ObjectiveC */ = {
+			isa = PBXGroup;
+			children = (
+				DC34257C2240C94F007405B4 /* 03.swift */,
+			);
+			path = 03ObjectiveC;
+			sourceTree = "<group>";
+		};
+		DC3425792240C845007405B4 /* 08Network */ = {
+			isa = PBXGroup;
+			children = (
+				DC34257E2240C95B007405B4 /* 08.swift */,
+			);
+			path = 08Network;
+			sourceTree = "<group>";
+		};
+		DC34257A2240C853007405B4 /* 10CacheLog */ = {
+			isa = PBXGroup;
+			children = (
+				DC3425802240C963007405B4 /* 10.swift */,
+			);
+			path = 10CacheLog;
+			sourceTree = "<group>";
+		};
+		DC34257B2240C891007405B4 /* 12ThirdPart */ = {
+			isa = PBXGroup;
+			children = (
+				DC3425822240C96A007405B4 /* 12.swift */,
+			);
+			path = 12ThirdPart;
+			sourceTree = "<group>";
+		};
 		DCDC861C22321D0A006ED299 /* MessageForward */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +465,7 @@
 				2E0805B4222FF8AD00599BC4 /* SGSampleRune.swift in Sources */,
 				623311CF2234B5370037E1BA /* SGMainThreadStuttersMonitorController.m in Sources */,
 				2E55681B2237EC2200BA3C09 /* SGFrameMeter.swift in Sources */,
+				DC34257F2240C95B007405B4 /* 08.swift in Sources */,
 				18693E332235116E004F8885 /* SSAutoreleasingTest.m in Sources */,
 				2E0805CF22336AF900599BC4 /* SGObjectS.swift in Sources */,
 				623311CC2234A0F50037E1BA /* PerformanceWatcher.m in Sources */,
@@ -434,6 +479,7 @@
 				2E556823223FCD6500BA3C09 /* SGOffScreenLayer.swift in Sources */,
 				2E0805B9222FFE2D00599BC4 /* SGHitTestController.swift in Sources */,
 				2E0805C622301D9800599BC4 /* SGUIAboutRunes.swift in Sources */,
+				DC3425812240C963007405B4 /* 10.swift in Sources */,
 				18693E2F2233735D004F8885 /* SGBlockRunes.swift in Sources */,
 				2E0805CA22301F0D00599BC4 /* ReadyForWX.m in Sources */,
 				CB6054CE13A7667686D9E8BD /* SGObject.m in Sources */,
@@ -441,8 +487,10 @@
 				2E0805DA2234E27D00599BC4 /* SGDynamic.m in Sources */,
 				CB605FA2A6E12B8A2E9E42E4 /* SGLogRune.swift in Sources */,
 				18B6CD5F2236951700C9DAEC /* SGStaticParam.m in Sources */,
+				DC3425832240C96A007405B4 /* 12.swift in Sources */,
 				18B6CD63223E5CC400C9DAEC /* SGBlockType.m in Sources */,
 				623311D12234B7090037E1BA /* SGRunloopRunes.swift in Sources */,
+				DC34257D2240C94F007405B4 /* 03.swift in Sources */,
 				CB605FFBE510DF6F0242ECDD /* SGMessageController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
