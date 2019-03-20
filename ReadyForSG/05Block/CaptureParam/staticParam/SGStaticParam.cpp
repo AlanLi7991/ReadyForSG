@@ -32752,7 +32752,10 @@ static void __SGStaticParam__captureStaticGlobalVar_block_func_0(struct __SGStat
         (blockModifierInt->__forwarding->blockModifierInt) += 1;
         ((id (*)(id, SEL))(void *)objc_msgSend)((id)(blockModifierObj->__forwarding->blockModifierObj), sel_registerName("copy"));
     }
-static void __SGStaticParam__captureStaticGlobalVar_block_copy_0(struct __SGStaticParam__captureStaticGlobalVar_block_impl_0*dst, struct __SGStaticParam__captureStaticGlobalVar_block_impl_0*src) {_Block_object_assign((void*)&dst->staticLocalVariableObj, (void*)src->staticLocalVariableObj, 3/*BLOCK_FIELD_IS_OBJECT*/);_Block_object_assign((void*)&dst->localVariableObj, (void*)src->localVariableObj, 3/*BLOCK_FIELD_IS_OBJECT*/);_Block_object_assign((void*)&dst->weakLocalParamPtr, (void*)src->weakLocalParamPtr, 3/*BLOCK_FIELD_IS_OBJECT*/);_Block_object_assign((void*)&dst->blockModifierInt, (void*)src->blockModifierInt, 8/*BLOCK_FIELD_IS_BYREF*/);_Block_object_assign((void*)&dst->blockModifierObj, (void*)src->blockModifierObj, 8/*BLOCK_FIELD_IS_BYREF*/);}
+static void __SGStaticParam__captureStaticGlobalVar_block_copy_0(struct __SGStaticParam__captureStaticGlobalVar_block_impl_0*dst, struct __SGStaticParam__captureStaticGlobalVar_block_impl_0*src)
+
+{_Block_object_assign((void*)&dst->staticLocalVariableObj, (void*)src->staticLocalVariableObj, 3/*BLOCK_FIELD_IS_OBJECT*/);_Block_object_assign((void*)&dst->localVariableObj, (void*)src->localVariableObj, 3/*BLOCK_FIELD_IS_OBJECT*/);_Block_object_assign((void*)&dst->weakLocalParamPtr, (void*)src->weakLocalParamPtr, 3/*BLOCK_FIELD_IS_OBJECT*/);_Block_object_assign((void*)&dst->blockModifierInt, (void*)src->blockModifierInt, 8/*BLOCK_FIELD_IS_BYREF*/);_Block_object_assign((void*)&dst->blockModifierObj, (void*)src->blockModifierObj, 8/*BLOCK_FIELD_IS_BYREF*/);
+}
 
 static void __SGStaticParam__captureStaticGlobalVar_block_dispose_0(struct __SGStaticParam__captureStaticGlobalVar_block_impl_0*src) {_Block_object_dispose((void*)src->staticLocalVariableObj, 3/*BLOCK_FIELD_IS_OBJECT*/);_Block_object_dispose((void*)src->localVariableObj, 3/*BLOCK_FIELD_IS_OBJECT*/);_Block_object_dispose((void*)src->weakLocalParamPtr, 3/*BLOCK_FIELD_IS_OBJECT*/);_Block_object_dispose((void*)src->blockModifierInt, 8/*BLOCK_FIELD_IS_BYREF*/);_Block_object_dispose((void*)src->blockModifierObj, 8/*BLOCK_FIELD_IS_BYREF*/);}
 
