@@ -43,7 +43,7 @@ class SGCALayerView: UIView {
     }
     
     //-----------------------------------------------------------------------------
-    //MARK: UIView draw周期 https://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/
+    //MARK: UIView draw周期
     //-----------------------------------------------------------------------------
 
     override func draw(_ rect: CGRect) {
@@ -102,15 +102,12 @@ class SGCALayerView: UIView {
     //-----------------------------------------------------------------------------
 
     override func display(_ layer: CALayer) {
+        
         DispatchQueue.global().async {
-            let colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
-            let context = CGContext(data: nil, width: 100, height: 100, bitsPerComponent: 8, bytesPerRow: 400, space: colorSpace , bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
-            context?.setFillColor(UIColor.red.cgColor)
-            context?.fill(CGRect(x: 0, y: 0, width: 50, height: 50))
-            let img = context?.makeImage()
+            let img = self.drawBitmap()
             sleep(3)
             DispatchQueue.main.async {
-                layer.contents = img!
+                layer.contents = img
             }
         }
         print("CALayerDelegate: display(layer:)")
@@ -134,5 +131,34 @@ class SGCALayerView: UIView {
     override func action(for layer: CALayer, forKey event: String) -> CAAction? {
         print("CALayerDelegate: action(for:\(layer) forKey:\(event))")
         return super.action(for: layer, forKey: event)
+    }
+    
+    //-----------------------------------------------------------------------------
+    // MARK: 绘制位图
+    // 官方文档:
+    // https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/drawingwithquartz2d/dq_context/dq_context.html#//apple_ref/doc/uid/TP30001066-CH203-CJBHBFFE
+    // 参考文档:
+    // http://blog.leichunfeng.com/blog/2017/02/20/talking-about-the-decompression-of-the-image-in-ios/
+    //-----------------------------------------------------------------------------
+    
+    func drawBitmap() -> CGImage {
+        //Color Space 决定了用什么颜色排布
+        let colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
+        //Context 准备上下文（画布）
+        // 参数注意点：
+        // 1. data: 传入自己开辟的内存区，为null则自动分配
+        // 2. bitsPerComponent 使用多少个bit代表一个颜色，是根据颜色空间的约定来的 常用 Bits per component（BPC）表示 255 就是 2^8 所以是8
+        // 3. bytesPerRow: 每一行像素是多少个byte, 由于RGB+A是8*4 = 32bit， 共计4Byte，宽度100 所以是 100*4
+        // 3-1. bytesPerRow: 使用0系统会进行Cache Line优化，通过设置成为CPU拷贝行数的倍数提高效率，会导致比手工算出来的大
+        // 4. CGImageAlphaInfo: 一些颜色空间的标记位，常见的是像素排列是 RGBA 还是 ARGB 可以用这个声明
+        let context = CGContext(data: nil, width: 100, height: 100, bitsPerComponent: 8, bytesPerRow: 100*4, space: colorSpace , bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
+        
+        //设置 Fill的着色
+        context?.setFillColor(UIColor.red.cgColor)
+        context?.fill(CGRect(x: 0, y: 0, width: 50, height: 50))
+        //返回CGImage 合成后的图片结果
+        let img = context?.makeImage()
+        //图片合成完毕
+        return img!
     }
 }

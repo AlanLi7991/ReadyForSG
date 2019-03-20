@@ -191,3 +191,18 @@
  * 2. 同理，当调用 performSelector:onThread:时，实际上其会创建一个Timer加到对
  *    应的线程去，同样的，如果对应线程没有 RunLoop 该方法也会失效。
  */
+
+//----------------------------------------------------------------------------//
+#pragma mark - 考点 Runloop的应用场景
+//----------------------------------------------------------------------------//
+/**
+ * 1. 子线程保活，如AFNetworking
+ * 2. 让Timer正常运转
+ * 3. 让UITableView、UICollectionView等延迟加载图片：例如，在网络下载好图片之后，
+ *    通过调用“performSelector:withObject:afterDelay:inModes:”方法（Modes
+ *    仅传DefaultMode而不是CommonMode），而不是直接dispatch到主线程加载图片。这
+ *    样在界面滑动时就不会因为加载图片而造成卡顿
+ *    参考链接：https://blog.csdn.net/u011619283/article/details/53483965
+ * 4. 主线程卡顿监测
+ * 5. 阻止App崩溃一次：https://www.jianshu.com/p/fee0c5155b8e
+ */
