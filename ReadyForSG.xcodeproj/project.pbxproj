@@ -42,6 +42,9 @@
 		623311CF2234B5370037E1BA /* SGMainThreadStuttersMonitorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 623311CE2234B5370037E1BA /* SGMainThreadStuttersMonitorController.m */; };
 		623311D12234B7090037E1BA /* SGRunloopRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623311D02234B7090037E1BA /* SGRunloopRunes.swift */; };
 		623BBF1122315F1000D4AEDA /* SGRunloop.m in Sources */ = {isa = PBXBuildFile; fileRef = 623BBF1022315F1000D4AEDA /* SGRunloop.m */; };
+		6B6DE0EF22430BC0004A0D65 /* ReferenceCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6DE0EE22430BC0004A0D65 /* ReferenceCount.m */; };
+		6B6DE0F222430BCE004A0D65 /* WeakReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6DE0F122430BCE004A0D65 /* WeakReference.m */; };
+		6B6DE0F522430BF1004A0D65 /* AutoReleasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6DE0F422430BF1004A0D65 /* AutoReleasePool.m */; };
 		CB6054CE13A7667686D9E8BD /* SGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CB605738EFCE9719FC3342FA /* SGObject.m */; };
 		CB605FA2A6E12B8A2E9E42E4 /* SGLogRune.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6055337F3F4EECDB1C6A66 /* SGLogRune.swift */; };
 		CB605FFBE510DF6F0242ECDD /* SGMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB605E11604C9552B5616B36 /* SGMessageController.m */; };
@@ -101,6 +104,12 @@
 		623311D02234B7090037E1BA /* SGRunloopRunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGRunloopRunes.swift; sourceTree = "<group>"; };
 		623BBF0F22315F1000D4AEDA /* SGRunloop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGRunloop.h; sourceTree = "<group>"; };
 		623BBF1022315F1000D4AEDA /* SGRunloop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGRunloop.m; sourceTree = "<group>"; };
+		6B6DE0ED22430BC0004A0D65 /* ReferenceCount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReferenceCount.h; sourceTree = "<group>"; };
+		6B6DE0EE22430BC0004A0D65 /* ReferenceCount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReferenceCount.m; sourceTree = "<group>"; };
+		6B6DE0F022430BCE004A0D65 /* WeakReference.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakReference.h; sourceTree = "<group>"; };
+		6B6DE0F122430BCE004A0D65 /* WeakReference.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakReference.m; sourceTree = "<group>"; };
+		6B6DE0F322430BF1004A0D65 /* AutoReleasePool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoReleasePool.h; sourceTree = "<group>"; };
+		6B6DE0F422430BF1004A0D65 /* AutoReleasePool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoReleasePool.m; sourceTree = "<group>"; };
 		CB6052697F107E713D224B28 /* SGMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMessageController.h; sourceTree = "<group>"; };
 		CB6055337F3F4EECDB1C6A66 /* SGLogRune.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGLogRune.swift; sourceTree = "<group>"; };
 		CB605738EFCE9719FC3342FA /* SGObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGObject.m; sourceTree = "<group>"; };
@@ -193,6 +202,7 @@
 				2E0805B6222FFDF800599BC4 /* 01UIAbout */,
 				2E0805CB22301FEB00599BC4 /* 02Runtime */,
 				DC3425782240C824007405B4 /* 03ObjectiveC */,
+				6B6DE0EC22430B63004A0D65 /* 04MemoryManagement */,
 				18A9001B222FFD7C00E75E71 /* 05Block */,
 				623BBF0D22315AEE00D4AEDA /* 07Runloop */,
 				DC3425792240C845007405B4 /* 08Network */,
@@ -328,6 +338,19 @@
 			path = ConceptAndLifeCycle;
 			sourceTree = "<group>";
 		};
+		6B6DE0EC22430B63004A0D65 /* 04MemoryManagement */ = {
+			isa = PBXGroup;
+			children = (
+				6B6DE0ED22430BC0004A0D65 /* ReferenceCount.h */,
+				6B6DE0EE22430BC0004A0D65 /* ReferenceCount.m */,
+				6B6DE0F022430BCE004A0D65 /* WeakReference.h */,
+				6B6DE0F122430BCE004A0D65 /* WeakReference.m */,
+				6B6DE0F322430BF1004A0D65 /* AutoReleasePool.h */,
+				6B6DE0F422430BF1004A0D65 /* AutoReleasePool.m */,
+			);
+			path = 04MemoryManagement;
+			sourceTree = "<group>";
+		};
 		CB60526F9DD01D55731EDCD7 /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +478,7 @@
 				2E0805AF222FF88D00599BC4 /* SGSampleController.swift in Sources */,
 				2E0805B3222FF8AD00599BC4 /* SGActionRune.swift in Sources */,
 				2E55681F223BF3CA00BA3C09 /* SGCPUView.swift in Sources */,
+				6B6DE0F522430BF1004A0D65 /* AutoReleasePool.m in Sources */,
 				DCDC861E22321D3D006ED299 /* SGMessageControllerS.swift in Sources */,
 				2E0805C422301C6900599BC4 /* SGSampleRunes.swift in Sources */,
 				2E55681D223A9B2000BA3C09 /* SGCALayer.swift in Sources */,
@@ -468,6 +492,7 @@
 				DC34257F2240C95B007405B4 /* 08.swift in Sources */,
 				18693E332235116E004F8885 /* SSAutoreleasingTest.m in Sources */,
 				2E0805CF22336AF900599BC4 /* SGObjectS.swift in Sources */,
+				6B6DE0F222430BCE004A0D65 /* WeakReference.m in Sources */,
 				623311CC2234A0F50037E1BA /* PerformanceWatcher.m in Sources */,
 				2E0805BB222FFE4B00599BC4 /* SGHitTestView.swift in Sources */,
 				2E0805BF223004E000599BC4 /* SGHitExpandButton.swift in Sources */,
@@ -488,6 +513,7 @@
 				CB605FA2A6E12B8A2E9E42E4 /* SGLogRune.swift in Sources */,
 				18B6CD5F2236951700C9DAEC /* SGStaticParam.m in Sources */,
 				DC3425832240C96A007405B4 /* 12.swift in Sources */,
+				6B6DE0EF22430BC0004A0D65 /* ReferenceCount.m in Sources */,
 				18B6CD63223E5CC400C9DAEC /* SGBlockType.m in Sources */,
 				623311D12234B7090037E1BA /* SGRunloopRunes.swift in Sources */,
 				DC34257D2240C94F007405B4 /* 03.swift in Sources */,
