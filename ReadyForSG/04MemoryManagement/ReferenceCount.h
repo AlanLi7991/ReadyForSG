@@ -282,4 +282,16 @@ NS_ASSUME_NONNULL_END
 //----------------------------------------------------------------------------//
 /**
  * https://blog.csdn.net/bravegogo/article/details/50965864?utm_source=blogxgwz1
+ * 1. 调用-release：引用计数为零
+ *    a. 对象正在被销毁
+ *    b. 不能有新的weak引用，否则weak引用指向nil
+ *    c. 调用【self dealloc】
+ * 2. 父类从底到顶依次调用dealloc
+ * 3. NSObject调用dealloc：实际就是调用objc_dispose()方法
+ * 4. objc_dispose()
+ *    a. c++的实例变量iVars调用destructors
+ *    b. 为ARC状态下的OC实例变量iVars调用release
+ *    c. 解除所有使用 runtime Associate方法关联的对象
+ *    d. 解除所有 __weak 引用
+ *    e. 调用free()
  */
