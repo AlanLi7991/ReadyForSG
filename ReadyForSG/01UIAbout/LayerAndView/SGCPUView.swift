@@ -153,6 +153,7 @@ class SGCPUView: UIView {
         // 1. 创建的过程中相当于重新绘制了一遍
         // 2. 重新绘制就相当于变相的解压缩了
         let context = CGContext(data: nil, width: cgImage.width, height: cgImage.height , bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: drawInfoRaw)
+        context?.draw(cgImage, in: CGRect(x: 0, y: 0, width: cgImage.width, height: cgImage.height))
         //生成解压缩后的位图返回
         return context?.makeImage()
     }
