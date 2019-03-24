@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182B618422474E12001BACF6 /* SGGCDRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B618322474E12001BACF6 /* SGGCDRunes.swift */; };
+		182B6187224750CA001BACF6 /* SGNSThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B6186224750CA001BACF6 /* SGNSThreadViewController.swift */; };
+		182B618A2247A02E001BACF6 /* SGLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B61892247A02E001BACF6 /* SGLockViewController.swift */; };
 		18693E2C223011AE004F8885 /* SGCaptureParamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18693E2B223011AE004F8885 /* SGCaptureParamController.swift */; };
 		18693E2F2233735D004F8885 /* SGBlockRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18693E2E2233735D004F8885 /* SGBlockRunes.swift */; };
 		18693E332235116E004F8885 /* SSAutoreleasingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18693E322235116E004F8885 /* SSAutoreleasingTest.m */; };
@@ -60,6 +63,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		182B618322474E12001BACF6 /* SGGCDRunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGGCDRunes.swift; sourceTree = "<group>"; };
+		182B6186224750CA001BACF6 /* SGNSThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGNSThreadViewController.swift; sourceTree = "<group>"; };
+		182B61892247A02E001BACF6 /* SGLockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGLockViewController.swift; sourceTree = "<group>"; };
 		18693E2B223011AE004F8885 /* SGCaptureParamController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGCaptureParamController.swift; sourceTree = "<group>"; };
 		18693E2E2233735D004F8885 /* SGBlockRunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGBlockRunes.swift; sourceTree = "<group>"; };
 		18693E312235116E004F8885 /* SSAutoreleasingTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSAutoreleasingTest.h; sourceTree = "<group>"; };
@@ -141,6 +147,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		182B618222474DE8001BACF6 /* 06GCD */ = {
+			isa = PBXGroup;
+			children = (
+				182B61882247A00D001BACF6 /* Lock */,
+				182B618522475085001BACF6 /* NSThread */,
+				182B618322474E12001BACF6 /* SGGCDRunes.swift */,
+			);
+			path = 06GCD;
+			sourceTree = "<group>";
+		};
+		182B618522475085001BACF6 /* NSThread */ = {
+			isa = PBXGroup;
+			children = (
+				182B6186224750CA001BACF6 /* SGNSThreadViewController.swift */,
+			);
+			path = NSThread;
+			sourceTree = "<group>";
+		};
+		182B61882247A00D001BACF6 /* Lock */ = {
+			isa = PBXGroup;
+			children = (
+				182B61892247A02E001BACF6 /* SGLockViewController.swift */,
+			);
+			path = Lock;
+			sourceTree = "<group>";
+		};
 		18693E2D223372E2004F8885 /* CaptureParam */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +244,7 @@
 				DC3425782240C824007405B4 /* 03ObjectiveC */,
 				6B6DE0EC22430B63004A0D65 /* 04MemoryManagement */,
 				18A9001B222FFD7C00E75E71 /* 05Block */,
+				182B618222474DE8001BACF6 /* 06GCD */,
 				623BBF0D22315AEE00D4AEDA /* 07Runloop */,
 				DC3425792240C845007405B4 /* 08Network */,
 				DC34257A2240C853007405B4 /* 10CacheLog */,
@@ -496,6 +529,7 @@
 			files = (
 				2E0805DC2234F0AB00599BC4 /* SGCALayerController.swift in Sources */,
 				2E0805AF222FF88D00599BC4 /* SGSampleController.swift in Sources */,
+				182B618422474E12001BACF6 /* SGGCDRunes.swift in Sources */,
 				2E0805B3222FF8AD00599BC4 /* SGActionRune.swift in Sources */,
 				2E55681F223BF3CA00BA3C09 /* SGCPUView.swift in Sources */,
 				6B6DE0F522430BF1004A0D65 /* AutoReleasePool.m in Sources */,
@@ -522,6 +556,7 @@
 				2E0805C2223010E300599BC4 /* SGCALayerView.swift in Sources */,
 				2E0805BD223004CA00599BC4 /* SGHitEmptyContainer.swift in Sources */,
 				2E0805D32234DC4A00599BC4 /* SGSwizzle.m in Sources */,
+				182B6187224750CA001BACF6 /* SGNSThreadViewController.swift in Sources */,
 				2E080581222FF77600599BC4 /* AppDelegate.swift in Sources */,
 				18693E2C223011AE004F8885 /* SGCaptureParamController.swift in Sources */,
 				2E556823223FCD6500BA3C09 /* SGOffScreenLayer.swift in Sources */,
@@ -540,6 +575,7 @@
 				DC3425832240C96A007405B4 /* SDWebImage.swift in Sources */,
 				6B6DE0EF22430BC0004A0D65 /* ReferenceCount.m in Sources */,
 				18B6CD63223E5CC400C9DAEC /* SGBlockType.m in Sources */,
+				182B618A2247A02E001BACF6 /* SGLockViewController.swift in Sources */,
 				623311D12234B7090037E1BA /* SGRunloopRunes.swift in Sources */,
 				DC34257D2240C94F007405B4 /* 03.swift in Sources */,
 				CB605FFBE510DF6F0242ECDD /* SGMessageController.m in Sources */,

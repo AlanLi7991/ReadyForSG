@@ -24,24 +24,9 @@ NSObject *globalVarObj = nil;
 
 @implementation SGStaticParam
 
-- (void)swap:(int *)a b:(int *)b {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
-typedef struct {
-    int a;
-} A;
-
 // 使用以下的命令，即可完成OC转C++
 // xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc -fobjc-arc -fblocks -fobjc-runtime=ios-9.0.0 -stdlib=libc++ SGStaticParam.m
 - (void)captureStaticGlobalVar {
-    int a = 1;
-    int b = 2;
-    A *aa = (A *)malloc(sizeof(A));
-    [self swap:aa b:&b];
-    
     // 静态全局变量
     staticGlobalVarObj = [[NSObject alloc] init];
     
