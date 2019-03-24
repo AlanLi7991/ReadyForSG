@@ -40,4 +40,21 @@ class SGGPUView: UIView {
     //
     // 参考 SGOffScreenLayer 文件详细说明
     //-----------------------------------------------------------------------------
+    
+    //-----------------------------------------------------------------------------
+    // MARK: 何时使用CPU何时使用CPU
+    // 1. 由CoreImage决定
+    // 2. 有CIContext的实例化方法决定，注意平时我们用的都是CG
+    //
+    // 创建基于 CPU 的 CIContext 对象 (默认是基于 GPU，CPU 需要额外设置参数)
+    // context = [CIContext contextWithOptions: [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:kCIContextUseSoftwareRenderer]];
+    // 创建基于 GPU 的 CIContext 对象
+    // context = [CIContext contextWithOptions: nil];
+    // 创建基于 GPU 的 CIContext 对象
+    // EAGLContext *eaglctx = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    // context = [CIContext contextWithEAGLContext:eaglctx];
+    // 参考:
+    // https://colin1994.github.io/2016/10/21/Core-Image-OverView/
+    // https://www.jianshu.com/p/13a28228f25f
+    //-----------------------------------------------------------------------------
 }
