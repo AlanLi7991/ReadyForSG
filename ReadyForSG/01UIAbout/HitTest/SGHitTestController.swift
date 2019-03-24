@@ -90,6 +90,8 @@ class SGHitTestController: UIViewController {
             ])
         
         SGLogRune.instance.attach(view: self.view)
+        view.bringSubviewToFront(hitView)
+        view.bringSubviewToFront(expandBtn)
     }
     
     static func rune() -> SGSampleRune {

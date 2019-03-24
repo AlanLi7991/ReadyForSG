@@ -32663,6 +32663,8 @@ struct SGStaticParam_IMPL {
 };
 
 
+// - (void)captureStaticGlobalVar;
+
 /* @end */
 
 #pragma clang assume_nonnull end
@@ -32792,7 +32794,11 @@ static void _I_SGStaticParam_captureStaticGlobalVar(SGStaticParam * self, SEL _c
     __attribute__((__blocks__(byref))) __Block_byref_blockModifierInt_0 blockModifierInt = {(void*)0,(__Block_byref_blockModifierInt_0 *)&blockModifierInt, 0, sizeof(__Block_byref_blockModifierInt_0), 1};
     __attribute__((__blocks__(byref))) __Block_byref_blockModifierObj_1 blockModifierObj = {(void*)0,(__Block_byref_blockModifierObj_1 *)&blockModifierObj, 33554432, sizeof(__Block_byref_blockModifierObj_1), __Block_byref_id_object_copy_131, __Block_byref_id_object_dispose_131, ((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("NSObject"), sel_registerName("alloc")), sel_registerName("init"))};
 
-    __attribute__((objc_ownership(strong))) void (^tempBlock)(void) = ((void (*)())&__SGStaticParam__captureStaticGlobalVar_block_impl_0((void *)__SGStaticParam__captureStaticGlobalVar_block_func_0, &__SGStaticParam__captureStaticGlobalVar_block_desc_0_DATA, &staticLocalVariableInt, &staticLocalVariableObj, localVariableInt, localVariableObj, weakLocalParamPtr, (__Block_byref_blockModifierInt_0 *)&blockModifierInt, (__Block_byref_blockModifierObj_1 *)&blockModifierObj, 570425344));
+
+    void (*tempBlock)(void) = ((void (*)())&__SGStaticParam__captureStaticGlobalVar_block_impl_0((void *)__SGStaticParam__captureStaticGlobalVar_block_func_0, &__SGStaticParam__captureStaticGlobalVar_block_desc_0_DATA, &staticLocalVariableInt, &staticLocalVariableObj, localVariableInt, localVariableObj, weakLocalParamPtr, (__Block_byref_blockModifierInt_0 *)&blockModifierInt, (__Block_byref_blockModifierObj_1 *)&blockModifierObj, 570425344));
+
+
+
     ((void (*)(id, SEL, void (*)()))(void *)objc_msgSend)((id)self, sel_registerName("setMemberCopyVar:"), (void (*)())tempBlock);
     ((void (*(*)(id, SEL))())(void *)objc_msgSend)((id)self, sel_registerName("memberCopyVar"))();
 

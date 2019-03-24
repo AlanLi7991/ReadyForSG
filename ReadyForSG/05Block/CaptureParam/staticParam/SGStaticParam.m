@@ -66,6 +66,7 @@ typedef struct {
     
     __block int blockModifierInt = 1;
     __block NSObject *blockModifierObj = [[NSObject alloc] init];
+    __block NSObject *obj3 = self.description;
     
 //    __weak void (^tempBlock)(void) = ^() {
     void (^tempBlock)(void) = ^() {
@@ -91,6 +92,10 @@ typedef struct {
         // block修饰符
         blockModifierInt += 1;
         [blockModifierObj copy];
+    };
+    
+    void (^tempBlock2)(void) = ^() {
+        blockModifierInt+=1;
     };
     // 全局Block (_NSConcreteGlobalBlock)：引用的是，全局变量，全局静态变量，静态变量
     // 栈区Block (_NSConcreteStackBlock)：引用局部变量，而又没被copy，strong的block
