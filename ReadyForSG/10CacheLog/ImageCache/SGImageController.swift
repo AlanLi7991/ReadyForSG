@@ -8,35 +8,57 @@
 
 import UIKit
 
-class SGImageCell: UITableViewCell {
+class SGImageModel: NSObject {
     
+    let index: IndexPath
+    let title: String
     var cache: SGImage?
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        cache = SGImage(key: reuseIdentifier!) { [weak self] (image) in
-            self?.imageView?.image = image
-        }
+    var table: UITableView? = nil
+    
+    init(index: IndexPath) {
+        self.index = index
+        self.title = "\(index.section)-\(index.row)"
+        super.init()
+        self.cache = SGImage(key: title , reder: { [weak self] (image) in
+            
+            self?.table?.reloadRows(at: [self?.index], with: .fade)
+            
+            }, info: {_ in
+                
+        })
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    
+    
 }
 
 class SGImageController: UITableViewController {
     
+    var data: [IndexPath: SGImageModel] = [IndexPath: SGImageModel]()
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 100
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "\(indexPath.row)") as? SGImageCell
-        if cell == nil {
-            cell = SGImageCell(style: .default, reuseIdentifier: "\(indexPath.row)")
+        if data[indexPath] == nil {
+            let model = SGImageModel(index: indexPath)
+            model.table = tableView
+            data[indexPath] = model
         }
-        cell!.imageView?.image = cell!.cache?.image
-        cell!.textLabel?.text = "\(indexPath.row)"
+        var cell = tableView.dequeueReusableCell(withIdentifier: "SGImageCell")
+        if cell == nil {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "SGImageCell")
+        }
+        guard let model = data[indexPath] else {
+            return cell!
+        }
+        
+        let value = model.cache?.fetchImage()
+        cell?.imageView?.image = value?.0
+        cell?.textLabel?.text = "\(indexPath.row)"
+        cell?.detailTextLabel?.text = value?.1
+        
         return cell!
     }
 
