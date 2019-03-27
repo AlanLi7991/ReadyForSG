@@ -8,58 +8,68 @@
 
 import UIKit
 
-class SGImageModel: NSObject {
-    
-    let index: IndexPath
-    let title: String
-    var cache: SGImage?
-    var table: UITableView? = nil
-    
-    init(index: IndexPath) {
-        self.index = index
-        self.title = "\(index.section)-\(index.row)"
-        super.init()
-        self.cache = SGImage(key: title , reder: { [weak self] (image) in
-            
-            self?.table?.reloadRows(at: [self?.index], with: .fade)
-            
-            }, info: {_ in
-                
-        })
-    }
-    
-    
-    
-}
-
 class SGImageController: UITableViewController {
     
-    var data: [IndexPath: SGImageModel] = [IndexPath: SGImageModel]()
+    let action = SGActionRune();
+    var cache: SGImageCache?
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        cache = SGImageCache() { [weak self](key, image) in
+            guard let indexes = self?.tableView.indexPathsForVisibleRows else { return }
+            indexes.forEach({ [weak self] (index) in
+                if key == "\(index.section)\(index.row)" {
+                    self?.tableView.cellForRow(at: index)?.setNeedsLayout()
+                }
+            })
+        }
+        
+        action.attach(viewController: self)
+        
+        action.alert.addAction(UIAlertAction(title: "Use MapTable", style: .default, handler: { [weak self](it) in
+            self?.cache?.useMap = !(self?.cache?.useMap ?? true)
+        }))
+        
+        action.alert.addAction(UIAlertAction(title: "Clean Map", style: .default, handler: { [weak self](it) in
+            self?.cache?.cleanMap()
+        }))
+        
+        action.alert.addAction(UIAlertAction(title: "Clean Cache", style: .default, handler: { [weak self](it) in
+            self?.cache?.cleanCache()
+        }))
+        
+        action.alert.addAction(UIAlertAction(title: "Clean Disk", style: .default, handler: { [weak self](it) in
+            self?.cache?.cleanDisk()
+        }))
+        
+        
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 100
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if data[indexPath] == nil {
-            let model = SGImageModel(index: indexPath)
-            model.table = tableView
-            data[indexPath] = model
-        }
         var cell = tableView.dequeueReusableCell(withIdentifier: "SGImageCell")
         if cell == nil {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: "SGImageCell")
         }
-        guard let model = data[indexPath] else {
-            return cell!
+        let render = cell!
+        guard let source = cache else {
+            return render
+        }
+        autoreleasepool {
+            let key = "\(indexPath.section)\(indexPath.row)"
+            let tuple = source.fetchImage(key: key)
+            render.textLabel?.text = key
+            render.imageView?.image = tuple.0
+            render.detailTextLabel?.text = tuple.1
         }
         
-        let value = model.cache?.fetchImage()
-        cell?.imageView?.image = value?.0
-        cell?.textLabel?.text = "\(indexPath.row)"
-        cell?.detailTextLabel?.text = value?.1
+        return render
         
-        return cell!
     }
 
     static func rune() -> SGSampleRune {
