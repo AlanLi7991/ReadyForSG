@@ -42,6 +42,7 @@
 		2E55682722472CA800BA3C09 /* SGDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E55682622472CA800BA3C09 /* SGDisk.swift */; };
 		2E55682A2247C62F00BA3C09 /* SGImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5568292247C62F00BA3C09 /* SGImageController.swift */; };
 		2E55682C2247DA2A00BA3C09 /* SGCacheLogRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E55682B2247DA2A00BA3C09 /* SGCacheLogRunes.swift */; };
+		2E55682E224909B500BA3C09 /* SGMemoryRune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E55682D224909B500BA3C09 /* SGMemoryRune.swift */; };
 		623311CC2234A0F50037E1BA /* PerformanceWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 623311CB2234A0F50037E1BA /* PerformanceWatcher.m */; };
 		623311CF2234B5370037E1BA /* SGMainThreadStuttersMonitorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 623311CE2234B5370037E1BA /* SGMainThreadStuttersMonitorController.m */; };
 		623311D12234B7090037E1BA /* SGRunloopRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623311D02234B7090037E1BA /* SGRunloopRunes.swift */; };
@@ -105,6 +106,7 @@
 		2E55682622472CA800BA3C09 /* SGDisk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGDisk.swift; sourceTree = "<group>"; };
 		2E5568292247C62F00BA3C09 /* SGImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGImageController.swift; sourceTree = "<group>"; };
 		2E55682B2247DA2A00BA3C09 /* SGCacheLogRunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCacheLogRunes.swift; sourceTree = "<group>"; };
+		2E55682D224909B500BA3C09 /* SGMemoryRune.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGMemoryRune.swift; sourceTree = "<group>"; };
 		623311CA2234A0F50037E1BA /* PerformanceWatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerformanceWatcher.h; sourceTree = "<group>"; };
 		623311CB2234A0F50037E1BA /* PerformanceWatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerformanceWatcher.m; sourceTree = "<group>"; };
 		623311CD2234B5370037E1BA /* SGMainThreadStuttersMonitorController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGMainThreadStuttersMonitorController.h; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				2E0805C322301C6900599BC4 /* SGSampleRunes.swift */,
 				2E0805AD222FF88D00599BC4 /* SGSampleController.swift */,
 				2E0805AE222FF88D00599BC4 /* SGSampleNavigation.swift */,
+				2E55682D224909B500BA3C09 /* SGMemoryRune.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				CB6054CE13A7667686D9E8BD /* SGObject.m in Sources */,
 				623BBF1122315F1000D4AEDA /* SGRunloop.m in Sources */,
 				2E0805DA2234E27D00599BC4 /* SGDynamic.m in Sources */,
+				2E55682E224909B500BA3C09 /* SGMemoryRune.swift in Sources */,
 				CB605FA2A6E12B8A2E9E42E4 /* SGLogRune.swift in Sources */,
 				18B6CD5F2236951700C9DAEC /* SGStaticParam.m in Sources */,
 				DC3425832240C96A007405B4 /* SDWebImage.swift in Sources */,
