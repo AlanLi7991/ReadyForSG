@@ -10,8 +10,18 @@ import UIKit
 
 ////////////////////////////// GCD //////////////////////////////
 //
-//  GCD源码：https://github.com/apple/swift-corelibs-libdispatch
+//  GCD源码：https://opensource.apple.com/tarballs/libdispatch/
 //  深入理解GCD：https://bestswifter.com/deep-gcd/
+//  GCD Swift的新语法：https://www.jianshu.com/p/b33015aee40d
+//
+//MARK: GCD
+//  GCD 是拼凑多个队列，队列与线程的概念是分开的。
+//  QOS: https://developer.apple.com/library/archive/documentation/Performance/Conceptual/EnergyGuide-iOS/PrioritizeWorkWithQoS.html
+//  MainThread: User-interactive
+//  DISPATCH_QUEUE_PRIORITY_HIGH: User-initiated
+//  DISPATCH_QUEUE_PRIORITY_DEFAULT: Default
+//  DISPATCH_QUEUE_PRIORITY_LOW: Utility
+//  DISPATCH_QUEUE_PRIORITY_BACKGROUND: Background
 //
 //MARK: 同步、异步 -- 串行、并行
 //  同步的任何操作都不会创建线程
@@ -36,10 +46,22 @@ class SGGCDViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         runSyncSerialQueue()
-//        runAsyncSerialQueue()
+        runAsyncSerialQueue()
+        sleep(1);
         runGroup()
+        runCustomQueue()
+    }
+    
+    func runCustomQueue() -> Void {
+        print("runCustomQueue")
+        
+        let workItem = DispatchWorkItem.init(qos: .userInteractive, flags: .enforceQoS) {
+            self.getCurrentThread()
+        }
+        DispatchQueue.global(qos: .default).async(execute: workItem)
+        DispatchQueue.global(qos: .userInteractive).async(execute: workItem)
     }
     
     func runGroup() -> Void {
@@ -88,7 +110,8 @@ class SGGCDViewController: UIViewController {
     
     func getCurrentThread() -> Void {
         let currentThread = Thread.current
-        print("current thread :\(currentThread)")
+        let enumValue = currentThread.qualityOfService
+        print("current thread :\(currentThread) Priority: \(currentThread.threadPriority) QOS: \(enumValue)")
     }
     
     static func rune() -> SGSampleRune {

@@ -21,7 +21,7 @@ class SGImageModel: NSObject {
         super.init()
         self.cache = SGImage(key: title , reder: { [weak self] (image) in
             
-            self?.table?.reloadRows(at: [self?.index], with: .fade)
+            (self?.table?.reloadRows(at: [self!.index], with: .fade))!
             
             }, info: {_ in
                 
