@@ -10,6 +10,7 @@
 		182B618422474E12001BACF6 /* SGGCDRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B618322474E12001BACF6 /* SGGCDRunes.swift */; };
 		182B6187224750CA001BACF6 /* SGNSThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B6186224750CA001BACF6 /* SGNSThreadViewController.swift */; };
 		182B618A2247A02E001BACF6 /* SGLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B61892247A02E001BACF6 /* SGLockViewController.swift */; };
+		182B618D224A6603001BACF6 /* SGGCDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B618C224A6603001BACF6 /* SGGCDViewController.swift */; };
 		18693E2C223011AE004F8885 /* SGCaptureParamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18693E2B223011AE004F8885 /* SGCaptureParamController.swift */; };
 		18693E2F2233735D004F8885 /* SGBlockRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18693E2E2233735D004F8885 /* SGBlockRunes.swift */; };
 		18693E332235116E004F8885 /* SSAutoreleasingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18693E322235116E004F8885 /* SSAutoreleasingTest.m */; };
@@ -66,6 +67,7 @@
 		182B618322474E12001BACF6 /* SGGCDRunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGGCDRunes.swift; sourceTree = "<group>"; };
 		182B6186224750CA001BACF6 /* SGNSThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGNSThreadViewController.swift; sourceTree = "<group>"; };
 		182B61892247A02E001BACF6 /* SGLockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGLockViewController.swift; sourceTree = "<group>"; };
+		182B618C224A6603001BACF6 /* SGGCDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGGCDViewController.swift; sourceTree = "<group>"; };
 		18693E2B223011AE004F8885 /* SGCaptureParamController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGCaptureParamController.swift; sourceTree = "<group>"; };
 		18693E2E2233735D004F8885 /* SGBlockRunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGBlockRunes.swift; sourceTree = "<group>"; };
 		18693E312235116E004F8885 /* SSAutoreleasingTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSAutoreleasingTest.h; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		182B618222474DE8001BACF6 /* 06GCD */ = {
 			isa = PBXGroup;
 			children = (
+				182B618B224A65EB001BACF6 /* GCD */,
 				182B61882247A00D001BACF6 /* Lock */,
 				182B618522475085001BACF6 /* NSThread */,
 				182B618322474E12001BACF6 /* SGGCDRunes.swift */,
@@ -171,6 +174,14 @@
 				182B61892247A02E001BACF6 /* SGLockViewController.swift */,
 			);
 			path = Lock;
+			sourceTree = "<group>";
+		};
+		182B618B224A65EB001BACF6 /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				182B618C224A6603001BACF6 /* SGGCDViewController.swift */,
+			);
+			path = GCD;
 			sourceTree = "<group>";
 		};
 		18693E2D223372E2004F8885 /* CaptureParam */ = {
@@ -561,6 +572,7 @@
 				18693E2C223011AE004F8885 /* SGCaptureParamController.swift in Sources */,
 				2E556823223FCD6500BA3C09 /* SGOffScreenLayer.swift in Sources */,
 				2E0805B9222FFE2D00599BC4 /* SGHitTestController.swift in Sources */,
+				182B618D224A6603001BACF6 /* SGGCDViewController.swift in Sources */,
 				2E0805C622301D9800599BC4 /* SGUIAboutRunes.swift in Sources */,
 				DC3425812240C963007405B4 /* SGImageCache.swift in Sources */,
 				18693E2F2233735D004F8885 /* SGBlockRunes.swift in Sources */,
