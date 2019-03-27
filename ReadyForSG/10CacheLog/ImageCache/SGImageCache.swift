@@ -74,7 +74,8 @@ public class SGImageCache: NSObject {
     
     private func reload(key: String) {
         DispatchQueue.global().async { [weak self] in
-            guard let url = URL(string: "https://source.unsplash.com/random") else {
+//            guard let url = URL(string: "https://source.unsplash.com/random") else {
+            guard let url = URL(string: "https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture") else {
                 print("create url error...")
                 return
             }

@@ -26,12 +26,12 @@ class SGMemoryRune: NSObject {
     }
     
     func active() {
-        guard let t = timer else {
-            timer = Timer(timeInterval: 1.0, repeats: true, block: { (timer) in
-                
-            })
-        }
-        t
+//        guard let t = timer else {
+//            timer = Timer(timeInterval: 1.0, repeats: true, block: { (timer) in
+//                
+//            })
+//        }
+//        t
     }
     
     func invalid() {
