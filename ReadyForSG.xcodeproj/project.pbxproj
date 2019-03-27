@@ -57,7 +57,7 @@
 		CB605FFBE510DF6F0242ECDD /* SGMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB605E11604C9552B5616B36 /* SGMessageController.m */; };
 		DC34257D2240C94F007405B4 /* 03.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC34257C2240C94F007405B4 /* 03.swift */; };
 		DC34257F2240C95B007405B4 /* 08.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC34257E2240C95B007405B4 /* 08.swift */; };
-		DC3425812240C963007405B4 /* SGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3425802240C963007405B4 /* SGImage.swift */; };
+		DC3425812240C963007405B4 /* SGImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3425802240C963007405B4 /* SGImageCache.swift */; };
 		DC3425832240C96A007405B4 /* SDWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3425822240C96A007405B4 /* SDWebImage.swift */; };
 		DCDC861E22321D3D006ED299 /* SGMessageControllerS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDC861D22321D3D006ED299 /* SGMessageControllerS.swift */; };
 /* End PBXBuildFile section */
@@ -131,7 +131,7 @@
 		CB605FA4F6B7A050DD42C83D /* SGObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGObject.h; sourceTree = "<group>"; };
 		DC34257C2240C94F007405B4 /* 03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 03.swift; sourceTree = "<group>"; };
 		DC34257E2240C95B007405B4 /* 08.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 08.swift; sourceTree = "<group>"; };
-		DC3425802240C963007405B4 /* SGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGImage.swift; sourceTree = "<group>"; };
+		DC3425802240C963007405B4 /* SGImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGImageCache.swift; sourceTree = "<group>"; };
 		DC3425822240C96A007405B4 /* SDWebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDWebImage.swift; sourceTree = "<group>"; };
 		DCDC861D22321D3D006ED299 /* SGMessageControllerS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGMessageControllerS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -352,7 +352,7 @@
 		2E5568282247BDE400BA3C09 /* ImageCache */ = {
 			isa = PBXGroup;
 			children = (
-				DC3425802240C963007405B4 /* SGImage.swift */,
+				DC3425802240C963007405B4 /* SGImageCache.swift */,
 				2E55682622472CA800BA3C09 /* SGDisk.swift */,
 				2E5568292247C62F00BA3C09 /* SGImageController.swift */,
 			);
@@ -562,7 +562,7 @@
 				2E556823223FCD6500BA3C09 /* SGOffScreenLayer.swift in Sources */,
 				2E0805B9222FFE2D00599BC4 /* SGHitTestController.swift in Sources */,
 				2E0805C622301D9800599BC4 /* SGUIAboutRunes.swift in Sources */,
-				DC3425812240C963007405B4 /* SGImage.swift in Sources */,
+				DC3425812240C963007405B4 /* SGImageCache.swift in Sources */,
 				18693E2F2233735D004F8885 /* SGBlockRunes.swift in Sources */,
 				2E0805CA22301F0D00599BC4 /* ReadyForWX.m in Sources */,
 				2E55682A2247C62F00BA3C09 /* SGImageController.swift in Sources */,
