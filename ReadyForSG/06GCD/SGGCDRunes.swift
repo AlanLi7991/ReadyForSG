@@ -15,8 +15,8 @@ class SGGCDRunes: SGSampleRunes {
     }
     
     override func runesInSect() -> [SGSampleRune] {
-        return [SGNSThreadViewController.rune(),
-                SGLockViewController.rune(),
-                SGGCDViewController.rune()]
+        return [SGGCDViewController.rune(),
+                SGNSThreadViewController.rune(),
+                SGLockViewController.rune()]
     }
 }
