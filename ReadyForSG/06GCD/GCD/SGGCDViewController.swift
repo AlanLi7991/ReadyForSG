@@ -66,6 +66,9 @@ import UIKit
 //                并不支持带有输入参数的写法，也就是说只有形如 () -> T 的参数才能使用这个特性进行简化。
 //  @autoclosure 与 @escaping 是可以兼容的，放置顺序可以颠倒。
 //
+//MARK: DispatchSource
+//  https://heisenbean.me/2017/06/A-deep-dive-into-Grand-Central-Dispatch-in-Swift/
+//
 //MARK: 新增函数
 //  https://wangwangok.github.io/2017/07/29/gcd_basic/
 //  https://wangwangok.github.io/2017/07/29/gcd_func/
