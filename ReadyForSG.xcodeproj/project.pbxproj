@@ -12,6 +12,7 @@
 		182B618A2247A02E001BACF6 /* SGLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B61892247A02E001BACF6 /* SGLockViewController.swift */; };
 		182B618D224A6603001BACF6 /* SGGCDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B618C224A6603001BACF6 /* SGGCDViewController.swift */; };
 		182B6194224E4A49001BACF6 /* SGConversionFunc.c in Sources */ = {isa = PBXBuildFile; fileRef = 182B6193224E4A49001BACF6 /* SGConversionFunc.c */; };
+		182B61972251181B001BACF6 /* SGOperationQueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B61962251181A001BACF6 /* SGOperationQueueViewController.swift */; };
 		18693E2C223011AE004F8885 /* SGCaptureParamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18693E2B223011AE004F8885 /* SGCaptureParamController.swift */; };
 		18693E2F2233735D004F8885 /* SGBlockRunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18693E2E2233735D004F8885 /* SGBlockRunes.swift */; };
 		18693E332235116E004F8885 /* SSAutoreleasingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18693E322235116E004F8885 /* SSAutoreleasingTest.m */; };
@@ -72,6 +73,7 @@
 		182B618C224A6603001BACF6 /* SGGCDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGGCDViewController.swift; sourceTree = "<group>"; };
 		182B6192224E4A49001BACF6 /* SGConversionFunc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGConversionFunc.h; sourceTree = "<group>"; };
 		182B6193224E4A49001BACF6 /* SGConversionFunc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SGConversionFunc.c; sourceTree = "<group>"; };
+		182B61962251181A001BACF6 /* SGOperationQueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGOperationQueueViewController.swift; sourceTree = "<group>"; };
 		18693E2B223011AE004F8885 /* SGCaptureParamController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGCaptureParamController.swift; sourceTree = "<group>"; };
 		18693E2E2233735D004F8885 /* SGBlockRunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGBlockRunes.swift; sourceTree = "<group>"; };
 		18693E312235116E004F8885 /* SSAutoreleasingTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSAutoreleasingTest.h; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		182B61952251162E001BACF6 /* operation */ = {
 			isa = PBXGroup;
 			children = (
+				182B61962251181A001BACF6 /* SGOperationQueueViewController.swift */,
 			);
 			path = operation;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				182B618D224A6603001BACF6 /* SGGCDViewController.swift in Sources */,
 				2E0805C622301D9800599BC4 /* SGUIAboutRunes.swift in Sources */,
 				DC3425812240C963007405B4 /* SGImageCache.swift in Sources */,
+				182B61972251181B001BACF6 /* SGOperationQueueViewController.swift in Sources */,
 				18693E2F2233735D004F8885 /* SGBlockRunes.swift in Sources */,
 				2E0805CA22301F0D00599BC4 /* ReadyForWX.m in Sources */,
 				2E55682A2247C62F00BA3C09 /* SGImageController.swift in Sources */,
