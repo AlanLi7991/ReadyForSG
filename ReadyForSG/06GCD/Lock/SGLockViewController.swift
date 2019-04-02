@@ -28,13 +28,18 @@ import UIKit
 //                        如果等待时间很短，比如只有几个微秒，忙等就比线程睡眠更高效。
 //
 //MARK: 锁类型 -- pthread_mutex
+//  https://www.gwduan.com/web/computer/history/pthread/mutex-attr.html
 //  pthread_mutex: 互斥锁。阻塞线程并睡眠，需要进行上下文切换，与信号量很像
 //  有以下的类型：
-//  PTHREAD_MUTEX_NORMAL 缺省类型，也就是普通锁。当一个线程加锁以后，其余请求锁的线程将形成一个等待队列，并在解锁后先进先出原则获得锁。
+//  PTHREAD_MUTEX_NORMAL 不会自动检测死锁。如果一个线程试图对一个互斥锁重复锁定，将会引起这个线程的死锁。如果试图解锁一个由别的线程锁定的互斥锁会引发不可预料的结果。
+//                       如果一个线程试图解锁已经被解锁的互斥锁也会引发不可预料的结果。
 //  PTHREAD_MUTEX_ERRORCHECK 检错锁，如果同一个线程请求同一个锁，则返回 EDEADLK，否则与普通锁类型动作相同。这样就保证当不允许多次加锁时不会出现嵌套情况下的死锁。
 //  PTHREAD_MUTEX_RECURSIVE 递归锁，允许同一个线程对同一个锁成功获得多次，并通过多次 unlock 解锁。
-//  PTHREAD_MUTEX_DEFAULT 适应锁，动作最简单的锁类型，仅等待解锁后重新竞争，没有等待队列。
+//  PTHREAD_MUTEX_DEFAULT 不会自动检测死锁。如果一个线程试图对一个互斥锁重复锁定，将会引起不可预料的结果。如果试图解锁一个由别的线程锁定的互斥锁会引发不可预料的结果。
+//                        如果一个线程试图解锁已经被解锁的互斥锁也会引发不可预料的结果。POSIX标准规定，对于某一具体的实现，可以把这种类型的互斥锁定义为其他类型的互斥锁。
 //  注意：由于 pthread_mutex 有多种类型，可以支持递归锁等，因此在申请加锁时，需要对锁的类型加以判断
+//  PTHREAD_MUTEX_NORMAL和PTHREAD_MUTEX_DEFAULT：解锁一个别的线程lock住的锁，或者根本没有lock的锁，行为未定义
+//  PTHREAD_MUTEX_ERRORCHECK和PTHREAD_MUTEX_RECURSIVE：解锁一个别的线程lock住的锁，或者根本没有lock的锁，返回EPERM
 //
 //MARK: 锁类型 -- NSLock
 //  NSLock: OC表面，内部封装了一个 pthread_mutex，属性为 PTHREAD_MUTEX_ERRORCHECK，它会损失一定性能换来错误提示
@@ -80,6 +85,7 @@ class SGLockViewController: UIViewController {
         }))
         
         action.alert.addAction(UIAlertAction.init(title: "互斥锁--递归锁", style: .default, handler: { [weak self] (_) in
+            self?.createPthreadMutex()
             self?.threadMethord(5)
         }))
         
@@ -135,6 +141,8 @@ class SGLockViewController: UIViewController {
         }
         
         pthread_mutex_unlock(&self.lock!)
+        
+        print("unlock value: \(value)")
     }
     
     static func rune() -> SGSampleRune {
