@@ -126,26 +126,36 @@ class SGGCDViewController: UIViewController {
         
         let workitem1 = DispatchWorkItem.init(qos: .userInteractive, flags: .inheritQoS) {
             [weak self] () -> Void in
-            print("userInteractive")
-            self?.getCurrentThread()
+            self?.getCurrentThread("userInteractive")
         }
         let workitem2 = DispatchWorkItem.init(qos: .userInitiated, flags: .inheritQoS) {
             [weak self] () -> Void in
-            print("userInitiated")
-            self?.getCurrentThread()
+            self?.getCurrentThread("userInitiated")
         }
         let workitem3 = DispatchWorkItem.init(qos: .default, flags: .inheritQoS) {
             [weak self] () -> Void in
-            print("default")
-            self?.getCurrentThread()
+            self?.getCurrentThread("default")
         }
-        let queue = DispatchQueue.init(label: "serial")
-        queue.async(execute: workitem1)
-        queue.async(execute: workitem2)
-        queue.async(execute: workitem3)
-//        workitem3.perform()
-//        workitem2.perform()
-//        workitem1.perform()
+        let workitem4 = DispatchWorkItem.init(qos: .utility, flags: .inheritQoS) {
+            [weak self] () -> Void in
+            self?.getCurrentThread("utility")
+        }
+        let workitem5 = DispatchWorkItem.init(qos: .background, flags: .inheritQoS) {
+            [weak self] () -> Void in
+            self?.getCurrentThread("background")
+        }
+//        let queue = DispatchQueue.global()
+//        queue.async(execute: workitem1)
+//        queue.async(execute: workitem2)
+//        queue.async(execute: workitem3)
+//        queue.async(execute: workitem4)
+//        queue.async(execute: workitem5)
+
+        workitem5.perform()
+        workitem4.perform()
+        workitem3.perform()
+        workitem2.perform()
+        workitem1.perform()
     }
     
     //MARK: 新增函数
@@ -171,8 +181,7 @@ class SGGCDViewController: UIViewController {
         }
         queue.async(execute: DispatchWorkItem.init(qos: .userInteractive, flags: .barrier, block: {
             [weak self] () -> Void in
-            print("write")
-            self?.getCurrentThread()
+            self?.getCurrentThread("write")
         }))
     }
     
@@ -209,7 +218,7 @@ class SGGCDViewController: UIViewController {
         print("\n\n")
         
         let workItem = DispatchWorkItem.init(qos: .userInteractive, flags: .enforceQoS) {
-            self.getCurrentThread()
+            self.getCurrentThread("runCustomQueue")
         }
         DispatchQueue.global(qos: .default).async(execute: workItem)
         DispatchQueue.global(qos: .userInteractive).async(execute: workItem)
@@ -246,7 +255,7 @@ class SGGCDViewController: UIViewController {
         let queue = DispatchQueue(label: "SERIAL")
         for _ in 0...5 {
             queue.async { [weak self] in
-                self?.getCurrentThread()
+                self?.getCurrentThread("SERIAL")
             }
         }
     }
@@ -254,14 +263,14 @@ class SGGCDViewController: UIViewController {
     func runSyncSerialQueue() -> Void {
         let queue = DispatchQueue(label: "SERIAL")
         queue.sync { [weak self] in
-            self?.getCurrentThread()
+            self?.getCurrentThread("SERIAL")
         }
     }
     
-    func getCurrentThread() -> Void {
+    func getCurrentThread(_ value: String) -> Void {
         let currentThread = Thread.current
         let enumValue = currentThread.qualityOfService.rawValue
-        print("current thread :\(currentThread) Priority: \(currentThread.threadPriority) QOS: \(enumValue)")
+        print("current thread :\(currentThread) Priority: \(currentThread.threadPriority) QOS: \(enumValue) value: \(value)")
     }
     
     static func rune() -> SGSampleRune {
