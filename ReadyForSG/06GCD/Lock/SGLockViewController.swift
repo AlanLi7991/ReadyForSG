@@ -20,6 +20,7 @@ import UIKit
 //  1.truly unbounded backoff 算法: 负荷大时还是会导致数十秒
 //  2.handoff lock 算法: 锁的持有者会把线程 ID 保存到锁内部，锁的等待者会临时贡献出它的优先级来避免优先级反转的问题。
 //    (libobjc所使用)     理论上这种模式会在比较复杂的多锁条件下产生问题，但实践上目前还一切都好。
+//    http://web.mit.edu/darwin/src/modules/xnu/osfmk/man/lock_handoff.html
 //
 //MARK: 锁类型 -- dispatch_semaphore_t
 //  dispatch_semaphore_t: 信号量，本质是通过调用lll_futex_wait(系统的SYS_futex),使线程进入睡眠状态，主动让出时间片
@@ -63,16 +64,45 @@ import UIKit
 class SGLockViewController: UIViewController {
     
     var lock : pthread_mutex_t?
+    var defaultLock : pthread_mutex_t?
+    let action = SGActionRune()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        action.attach(viewController: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        createPthreadMutex()
-        threadMethord(5)
+        action.alert.addAction(UIAlertAction.init(title: "条件锁", style: .default, handler: { [weak self] (_) in
+            self?.createConditionLock()
+        }))
+        
+        action.alert.addAction(UIAlertAction.init(title: "互斥锁--递归锁", style: .default, handler: { [weak self] (_) in
+            self?.threadMethord(5)
+        }))
+        
+        action.alert.addAction(UIAlertAction.init(title: "适应锁", style: .default, handler: { [weak self] (_) in
+            var attr : pthread_mutexattr_t = pthread_mutexattr_t()
+            self?.defaultLock = pthread_mutex_t()
+            
+            pthread_mutexattr_init(&attr)
+            pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_DEFAULT)
+            pthread_mutex_init(&self!.defaultLock!, &attr)
+            
+            DispatchQueue.concurrentPerform(iterations: 5, execute: { [weak self] (i) in
+                print("enter \(i)")
+                self?.callDefaultLock(value: String(i))
+            })
+        }))
+    }
+    
+    // MARK: 适应锁
+    func callDefaultLock(value: String) -> Void {
+        pthread_mutex_lock(&self.defaultLock!)
+        print("default lock: \(value)")
+        pthread_mutex_unlock(&self.defaultLock!)
     }
     
     // MARK: NSCondition
