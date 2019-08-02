@@ -14,7 +14,9 @@ import UIKit
 //  深入理解GCD：https://bestswifter.com/deep-gcd/
 //  GCD Swift的新语法：https://www.jianshu.com/p/b33015aee40d
 //
-//MARK: GCD
+//  -----------------------------------------------------------  //
+//  MARK: GCD
+//  -----------------------------------------------------------  //
 //  GCD 是拼凑多个队列，队列与线程的概念是分开的。
 //  QOS: https://developer.apple.com/library/archive/documentation/Performance/Conceptual/EnergyGuide-iOS/PrioritizeWorkWithQoS.html
 //  MainThread: User-interactive
@@ -23,23 +25,31 @@ import UIKit
 //  DISPATCH_QUEUE_PRIORITY_LOW: Utility
 //  DISPATCH_QUEUE_PRIORITY_BACKGROUND: Background
 //
-//MARK: 同步、异步 -- 串行、并行
+//  -----------------------------------------------------------  //
+//  MARK: 同步、异步 -- 串行、并行
+//  -----------------------------------------------------------  //
 //  同步的任何操作都不会创建线程
 //  异步操作：1.主队列不会创建线程
 //          2.串行，创建一个线程，串行执行
 //          3.并发队列，根据线程池不断创建线程，去并行执行任务
 //
-//MARK: dispatch_barrier_async/dispatch_barrier_sync
+//  -----------------------------------------------------------  //
+//  MARK: dispatch_barrier_async/dispatch_barrier_sync
+//  -----------------------------------------------------------  //
 //  可将多个并行的执行分割开来
 //  可进行多读，单写
 //  block参数会被目标队列复制并持有。目标队列必须是用户手动创建的并发队列，如果传入的是串行队列或者是全局并发队列，那么这个函数就和dispatch_async类似。
 //  dispatch_barrier_sync函数的目标线程不会复制和持有block
 //
-//MARK: group 使用
+//  -----------------------------------------------------------  //
+//  MARK: group 使用
+//  -----------------------------------------------------------  //
 //  group enter, group leave
 //  __dispatch_group_async
 //
-//MARK: DispatchWorkItem代替dispatch_block_t
+//  -----------------------------------------------------------  //
+//  MARK: DispatchWorkItem代替dispatch_block_t
+//  -----------------------------------------------------------  //
 //  flags: https://developer.apple.com/documentation/dispatch/dispatch_block_flags_t
 //  apple flags: https://github.com/apple/swift-corelibs-libdispatch/blob/master/dispatch/block.h
 //  assignCurrentContext: Set the attributes of the work item to match the attributes of the current execution context.
@@ -54,22 +64,30 @@ import UIKit
 //         表明dispatch_block不分配QOS类
 //  barrier: Cause the work item to act as a barrier block when submitted to a concurrent queue.
 //
-//MARK: @convention(XXXX）修饰符
+//  -----------------------------------------------------------  //
+//  MARK: @convention(XXXX）修饰符
+//  -----------------------------------------------------------  //
 //  @convention(swift) : 表明这个是一个swift的闭包
 //  @convention(block) ：表明这个是一个兼容oc的block的闭包
 //  @convention(c) : 表明这个是兼容c的函数指针的闭包。
 //
-//MARK: 闭包关键字
+//  -----------------------------------------------------------  //
+//  MARK: 闭包关键字
+//  -----------------------------------------------------------  //
 //  @escaping: 逃逸闭包，返回值后再执行，or 异步执行
 //  @autoclosure: 自动闭包。简化参数传递，延迟执行时间。即可以让返回该参数类型的闭包作为参数
 //                其只可以修饰作为参数的闭包类型
 //                并不支持带有输入参数的写法，也就是说只有形如 () -> T 的参数才能使用这个特性进行简化。
 //  @autoclosure 与 @escaping 是可以兼容的，放置顺序可以颠倒。
 //
-//MARK: DispatchSource
+//  -----------------------------------------------------------  //
+//  MARK: DispatchSource
+//  -----------------------------------------------------------  //
 //  https://heisenbean.me/2017/06/A-deep-dive-into-Grand-Central-Dispatch-in-Swift/
 //
-//MARK: 新增函数
+//  -----------------------------------------------------------  //
+//  MARK: 新增函数
+//  -----------------------------------------------------------  //
 //  https://wangwangok.github.io/2017/07/29/gcd_basic/
 //  https://wangwangok.github.io/2017/07/29/gcd_func/
 //  dispatch_block_testcancel：让我们能够知道当前任务块是否已经被取消。

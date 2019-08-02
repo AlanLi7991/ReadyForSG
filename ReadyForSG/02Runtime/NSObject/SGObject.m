@@ -45,7 +45,7 @@
 - (id)forwardingTargetForSelector:(SEL)aSelector {
     id result = [super forwardingTargetForSelector:aSelector];
     NSLog(@"Object-C: [forwardingTargetForSelector:] SEL %@ return %@ ", NSStringFromSelector(aSelector), result);
-    if (aSelector == @selector(test)) {
+    if (aSelector == @selector(methodNotImplementation)) {
         return nil;
     }
     return result;

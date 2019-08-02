@@ -291,7 +291,7 @@
 
 @interface SGObject : NSObject
 
-- (void)test;
+- (void)methodNotImplementation;
 
 @end
 

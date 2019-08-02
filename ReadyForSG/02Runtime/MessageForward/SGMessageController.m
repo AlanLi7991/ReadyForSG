@@ -30,7 +30,7 @@
     [_action attachWithViewController:self];
     __weak typeof(self) target = self;
     [_action.alert addAction:[UIAlertAction actionWithTitle:@"Call" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [target.obj test];
+        [target.obj methodNotImplementation];
     }]];
     
 }
